@@ -60,9 +60,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
             o.setCreateTime(MyDateUtil.getDefaultTimeString());
         }
         //更新时间 update_time char(19) updateTime String
-        if(StringUtils.isBlank(o.getUpdateTime())){
-            o.setUpdateTime(MyDateUtil.getDefaultTimeString());
-        }
+        o.setUpdateTime(MyDateUtil.getDefaultTimeString());
         updateById(o);
     }
 
@@ -106,17 +104,17 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
             <#if field.comment!?length gt 0>
         //${field.comment} ${field.name} ${field.type} ${field.propertyName} ${field.propertyType}
             </#if>
-
             <#if field.keyFlag>
             <#elseif field.propertyName == 'createTime'>
             <#elseif field.propertyName == 'updateTime'>
-            <#elseif field.propertyType == 'String'>
+            <#elseif field.propertyType == 'String' && field.name != "del_flag">
         o.set${'${field.propertyName}'?cap_first}("${field.propertyName}" + i);
             <#elseif field.name != "del_flag" && (field.propertyType == 'Integer')>
         o.set${'${field.propertyName}'?cap_first}(111 + i);
             <#elseif field.name != "del_flag" && (field.propertyType == 'Long')>
         o.set${'${field.propertyName}'?cap_first}(222L + i);
             </#if>
+
         </#list>
         insert(o);
     }

@@ -115,7 +115,6 @@ public class CodeGenService {
     }
 
     private String getTemplateBasepath(){
-//        return projectPath + "/src/main/java/template/";
         return "/template/";
     }
 

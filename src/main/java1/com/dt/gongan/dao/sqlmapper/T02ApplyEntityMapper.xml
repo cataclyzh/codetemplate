@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dt.gongan.dao.mapper.T02ApplyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dt.gongan.dao.entity.T02ApplyEntity">
+        <id column="id" property="id" />
+        <result column="apply_no" property="applyNo" />
+        <result column="apply_person_id" property="applyPersonId" />
+        <result column="apply_person_name" property="applyPersonName" />
+        <result column="apply_person_phone" property="applyPersonPhone" />
+        <result column="apply_person_no" property="applyPersonNo" />
+        <result column="duty_person_id" property="dutyPersonId" />
+        <result column="duty_person_name" property="dutyPersonName" />
+        <result column="duty_person_phone" property="dutyPersonPhone" />
+        <result column="duty_person_no" property="dutyPersonNo" />
+        <result column="handle_person_id" property="handlePersonId" />
+        <result column="handle_person_name" property="handlePersonName" />
+        <result column="handle_person_phone" property="handlePersonPhone" />
+        <result column="handle_person_no" property="handlePersonNo" />
+        <result column="requirement_person_id" property="requirementPersonId" />
+        <result column="requirement_person_name" property="requirementPersonName" />
+        <result column="requirement_person_phone" property="requirementPersonPhone" />
+        <result column="requirement_person_no" property="requirementPersonNo" />
+        <result column="apply_theme" property="applyTheme" />
+        <result column="apply_message" property="applyMessage" />
+        <result column="apply_type" property="applyType" />
+        <result column="publish_time" property="publishTime" />
+        <result column="publish_comment" property="publishComment" />
+        <result column="process_type" property="processType" />
+        <result column="process_time" property="processTime" />
+        <result column="forward_type" property="forwardType" />
+        <result column="forward_time" property="forwardTime" />
+        <result column="apply_status" property="applyStatus" />
+        <result column="apply_from" property="applyFrom" />
+        <result column="apply_time" property="applyTime" />
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+</mapper>

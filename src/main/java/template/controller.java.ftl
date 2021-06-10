@@ -25,6 +25,13 @@ import com.dt.core.model.PageReplyResponse;
 import com.dt.core.model.PageRequest;
 import com.dt.core.model.ReplyResponse;
 
+import com.dt.core.tools.MyHttpTools;
+import com.dt.gongan.model.session.LoginUserDto;
+import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * <p>
  * ${table.comment!} 前端控制器
@@ -36,7 +43,7 @@ import com.dt.core.model.ReplyResponse;
 <#if restControllerStyle>
 @Slf4j
 @RestController
-@Api(tags = "${table.comment!}", description = "<#if package.ModuleName?? && package.ModuleName != "">/${package.ModuleName}</#if>/<#if controllerMappingHyphenStyle??>${controllerMappingHyphen}<#else>${table.entityPath}</#if>")
+@Api(tags = "${entity?substring(1,3)} ${table.comment!}", description = "<#if package.ModuleName?? && package.ModuleName != "">/${package.ModuleName}</#if>/<#if controllerMappingHyphenStyle??>${controllerMappingHyphen}<#else>${table.entityPath}</#if>")
 <#else>
 @Controller
 </#if>
@@ -54,7 +61,15 @@ public class ${table.controllerName} {
 
     @ApiOperation(value = "${table.comment!}分页查询", notes = "page")
     @PostMapping("/page")
-    public PageReplyResponse<List<${entity}>> page(@RequestBody PageRequest<${entity}> pageRequest) {
+    public PageReplyResponse<List<${entity}>> page(@RequestBody PageRequest<${entity}> pageRequest,
+            @RequestHeader(value = "current-user") String userJson,
+            @RequestHeader(value = "sessionToken") String sessionToken,
+            HttpServletRequest request) {
+        MyHttpTools.printHeaderInfo(request);
+        //用户信息处理
+        LoginUserDto loginUserDto = MyHttpTools.convertLoginUserDto(userJson);
+        log.info("requestWrapper: {}, login user: {}, sessionToken: {}", pageRequest, loginUserDto, sessionToken);
+
         log.info("page request: {}", pageRequest);
 
         IPage<${entity}> page = new Page<>(pageRequest.getCurrentPage(),
@@ -68,7 +83,15 @@ public class ${table.controllerName} {
     @ApiOperation(value = "${table.comment!}列表查询", notes = "list")
     @PostMapping("/list")
     public ReplyResponse<List<${entity}>> list(
-            @RequestBody RequestWrapper<${entity}> requestWrapper) {
+            @RequestBody RequestWrapper<${entity}> requestWrapper,
+            @RequestHeader(value = "current-user") String userJson,
+            @RequestHeader(value = "sessionToken") String sessionToken,
+            HttpServletRequest request) {
+        MyHttpTools.printHeaderInfo(request);
+        //用户信息处理
+        LoginUserDto loginUserDto = MyHttpTools.convertLoginUserDto(userJson);
+        log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
+
         log.info("list request: {}", requestWrapper);
 
         ${entity} ${'${entity}'?uncap_first} = requestWrapper.getData();
@@ -80,33 +103,65 @@ public class ${table.controllerName} {
 
     @ApiOperation(value = "增加记录", notes = "insert")
     @PostMapping("/insert")
-    public ReplyResponse<${entity}> insert(@RequestBody RequestWrapper<${entity}> requestObj) {
-        log.info("insert request: {}", requestObj);
-        ${'${table.serviceName}'?uncap_first}.insert(requestObj.getData());
+    public ReplyResponse<${entity}> insert(@RequestBody RequestWrapper<${entity}> requestWrapper,
+            @RequestHeader(value = "current-user") String userJson,
+            @RequestHeader(value = "sessionToken") String sessionToken,
+            HttpServletRequest request) {
+        MyHttpTools.printHeaderInfo(request);
+        //用户信息处理
+        LoginUserDto loginUserDto = MyHttpTools.convertLoginUserDto(userJson);
+        log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
+
+        log.info("insert request: {}", requestWrapper);
+        ${'${table.serviceName}'?uncap_first}.insert(requestWrapper.getData());
         return ReplyResponse.ok();
     }
 
     @ApiOperation(value = "修改记录", notes = "update")
     @PostMapping("/update")
-    public ReplyResponse<${entity}> update(@RequestBody RequestWrapper<${entity}> requestObj) {
-        log.info("update request: {}", requestObj);
-        ${'${table.serviceName}'?uncap_first}.update(requestObj.getData());
+    public ReplyResponse<${entity}> update(@RequestBody RequestWrapper<${entity}> requestWrapper,
+            @RequestHeader(value = "current-user") String userJson,
+            @RequestHeader(value = "sessionToken") String sessionToken,
+            HttpServletRequest request) {
+        MyHttpTools.printHeaderInfo(request);
+        //用户信息处理
+        LoginUserDto loginUserDto = MyHttpTools.convertLoginUserDto(userJson);
+        log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
+
+        log.info("update request: {}", requestWrapper);
+        ${'${table.serviceName}'?uncap_first}.update(requestWrapper.getData());
         return ReplyResponse.ok();
     }
 
     @ApiOperation(value = "删除记录", notes = "delete")
     @PostMapping("/delete")
-    public ReplyResponse<${entity}> delete(@RequestBody RequestWrapper<Long> requestObj) {
-        log.info("update request: {}", requestObj);
-        ${'${table.serviceName}'?uncap_first}.removeById(requestObj.getData());
+    public ReplyResponse<${entity}> delete(@RequestBody RequestWrapper<Long> requestWrapper,
+            @RequestHeader(value = "current-user") String userJson,
+            @RequestHeader(value = "sessionToken") String sessionToken,
+            HttpServletRequest request) {
+        MyHttpTools.printHeaderInfo(request);
+        //用户信息处理
+        LoginUserDto loginUserDto = MyHttpTools.convertLoginUserDto(userJson);
+        log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
+
+        log.info("update request: {}", requestWrapper);
+        ${'${table.serviceName}'?uncap_first}.removeById(requestWrapper.getData());
         return ReplyResponse.ok();
     }
 
     @ApiOperation(value = "明细记录", notes = "detail")
     @PostMapping("/detail")
-    public ReplyResponse<${entity}> detail(@RequestBody RequestWrapper<Long> requestObj) {
-        log.info("detail request: {}", requestObj);
-        ${entity} result = ${'${table.serviceName}'?uncap_first}.getById(requestObj.getData());
+    public ReplyResponse<${entity}> detail(@RequestBody RequestWrapper<Long> requestWrapper,
+        @RequestHeader(value = "current-user") String userJson,
+            @RequestHeader(value = "sessionToken") String sessionToken,
+            HttpServletRequest request) {
+        MyHttpTools.printHeaderInfo(request);
+        //用户信息处理
+        LoginUserDto loginUserDto = MyHttpTools.convertLoginUserDto(userJson);
+        log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
+
+        log.info("detail request: {}", requestWrapper);
+        ${entity} result = ${'${table.serviceName}'?uncap_first}.getById(requestWrapper.getData());
         return ReplyResponse.ok(result);
     }
 

@@ -1,16 +1,9 @@
-package ${package.Controller};
+package com.dt.gongan.dao.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
-<#if restControllerStyle>
 import org.springframework.web.bind.annotation.RestController;
-<#else>
-import org.springframework.stereotype.Controller;
-</#if>
-<#if superControllerClassPackage??>
-import ${superControllerClassPackage};
-</#if>
-import ${package.Entity}.${entity};
-import ${package.Service}.${table.serviceName};
+import com.dt.gongan.dao.entity.T02ApplyEntity;
+import com.dt.gongan.dao.service.T02ApplyService;
 import java.util.List;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -34,34 +27,23 @@ import javax.servlet.http.HttpServletRequest;
 
 /**
  * <p>
- * ${table.comment!} 前端控制器
+ * 申请记录 前端控制器
  * </p>
  *
- * @author ${author}
- * @since ${date}
+ * @author 铠甲勇士
+ * @since 2021-06-10
  */
-<#if restControllerStyle>
 @Slf4j
 @RestController
-@Api(tags = "${entity?substring(1,3)} ${table.comment!}", description = "<#if package.ModuleName?? && package.ModuleName != "">/${package.ModuleName}</#if>/<#if controllerMappingHyphenStyle??>${controllerMappingHyphen}<#else>${table.entityPath}</#if>")
-<#else>
-@Controller
-</#if>
-@RequestMapping("<#if package.ModuleName?? && package.ModuleName != "">/${package.ModuleName}</#if>/<#if controllerMappingHyphenStyle??>${controllerMappingHyphen}<#else>${table.entityPath}</#if>")
-<#if kotlin>
-class ${table.controllerName}<#if superControllerClass??> : ${superControllerClass}()</#if>
-<#else>
-<#if superControllerClass??>
-public class ${table.controllerName} extends ${superControllerClass} {
-<#else>
-public class ${table.controllerName} {
-</#if>
+@Api(tags = "02 申请记录", description = "/gongan/t02-apply-entity")
+@RequestMapping("/gongan/t02-apply-entity")
+public class T02ApplyController {
     @Autowired
-    private ${table.serviceName} ${'${table.serviceName}'?uncap_first};
+    private T02ApplyService t02ApplyService;
 
-    @ApiOperation(value = "${table.comment!}分页查询", notes = "page")
+    @ApiOperation(value = "申请记录分页查询", notes = "page")
     @PostMapping("/page")
-    public PageReplyResponse<List<${entity}>> page(@RequestBody PageRequest<${entity}> pageRequest,
+    public PageReplyResponse<List<T02ApplyEntity>> page(@RequestBody PageRequest<T02ApplyEntity> pageRequest,
             @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
             HttpServletRequest request) {
@@ -72,18 +54,18 @@ public class ${table.controllerName} {
 
         log.info("page request: {}", pageRequest);
 
-        IPage<${entity}> page = new Page<>(pageRequest.getCurrentPage(),
+        IPage<T02ApplyEntity> page = new Page<>(pageRequest.getCurrentPage(),
                 pageRequest.getPageSize(), true);
-        ${entity} ${'${entity}'?uncap_first} = pageRequest.getData();
-        IPage<${entity}> resultList = ${'${table.serviceName}'?uncap_first}.selectPage(page, ${'${entity}'?uncap_first});
+        T02ApplyEntity t02ApplyEntity = pageRequest.getData();
+        IPage<T02ApplyEntity> resultList = t02ApplyService.selectPage(page, t02ApplyEntity);
 
         return PageReplyResponse.page(resultList);
     }
 
-    @ApiOperation(value = "${table.comment!}列表查询", notes = "list")
+    @ApiOperation(value = "申请记录列表查询", notes = "list")
     @PostMapping("/list")
-    public ReplyResponse<List<${entity}>> list(
-            @RequestBody RequestWrapper<${entity}> requestWrapper,
+    public ReplyResponse<List<T02ApplyEntity>> list(
+            @RequestBody RequestWrapper<T02ApplyEntity> requestWrapper,
             @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
             HttpServletRequest request) {
@@ -94,16 +76,16 @@ public class ${table.controllerName} {
 
         log.info("list request: {}", requestWrapper);
 
-        ${entity} ${'${entity}'?uncap_first} = requestWrapper.getData();
-        List<${entity}> resultList =
-            ${'${table.serviceName}'?uncap_first}.selectList(${'${entity}'?uncap_first});
+        T02ApplyEntity t02ApplyEntity = requestWrapper.getData();
+        List<T02ApplyEntity> resultList =
+            t02ApplyService.selectList(t02ApplyEntity);
 
         return ReplyResponse.ok(resultList);
     }
 
     @ApiOperation(value = "增加记录", notes = "insert")
     @PostMapping("/insert")
-    public ReplyResponse<${entity}> insert(@RequestBody RequestWrapper<${entity}> requestWrapper,
+    public ReplyResponse<T02ApplyEntity> insert(@RequestBody RequestWrapper<T02ApplyEntity> requestWrapper,
             @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
             HttpServletRequest request) {
@@ -113,13 +95,13 @@ public class ${table.controllerName} {
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
 
         log.info("insert request: {}", requestWrapper);
-        ${'${table.serviceName}'?uncap_first}.insert(requestWrapper.getData());
+        t02ApplyService.insert(requestWrapper.getData());
         return ReplyResponse.ok();
     }
 
     @ApiOperation(value = "修改记录", notes = "update")
     @PostMapping("/update")
-    public ReplyResponse<${entity}> update(@RequestBody RequestWrapper<${entity}> requestWrapper,
+    public ReplyResponse<T02ApplyEntity> update(@RequestBody RequestWrapper<T02ApplyEntity> requestWrapper,
             @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
             HttpServletRequest request) {
@@ -129,13 +111,13 @@ public class ${table.controllerName} {
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
 
         log.info("update request: {}", requestWrapper);
-        ${'${table.serviceName}'?uncap_first}.update(requestWrapper.getData());
+        t02ApplyService.update(requestWrapper.getData());
         return ReplyResponse.ok();
     }
 
     @ApiOperation(value = "删除记录", notes = "delete")
     @PostMapping("/delete")
-    public ReplyResponse<${entity}> delete(@RequestBody RequestWrapper<Long> requestWrapper,
+    public ReplyResponse<T02ApplyEntity> delete(@RequestBody RequestWrapper<Long> requestWrapper,
             @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
             HttpServletRequest request) {
@@ -145,13 +127,13 @@ public class ${table.controllerName} {
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
 
         log.info("update request: {}", requestWrapper);
-        ${'${table.serviceName}'?uncap_first}.removeById(requestWrapper.getData());
+        t02ApplyService.removeById(requestWrapper.getData());
         return ReplyResponse.ok();
     }
 
     @ApiOperation(value = "明细记录", notes = "detail")
     @PostMapping("/detail")
-    public ReplyResponse<${entity}> detail(@RequestBody RequestWrapper<Long> requestWrapper,
+    public ReplyResponse<T02ApplyEntity> detail(@RequestBody RequestWrapper<Long> requestWrapper,
         @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
             HttpServletRequest request) {
@@ -161,9 +143,8 @@ public class ${table.controllerName} {
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
 
         log.info("detail request: {}", requestWrapper);
-        ${entity} result = ${'${table.serviceName}'?uncap_first}.getById(requestWrapper.getData());
+        T02ApplyEntity result = t02ApplyService.getById(requestWrapper.getData());
         return ReplyResponse.ok(result);
     }
 
 }
-</#if>
