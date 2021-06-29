@@ -12,17 +12,17 @@ import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 战果案例填报
+ * 热线信息表
  * </p>
  *
  * @author 铠甲勇士
- * @since 2021-06-10
+ * @since 2021-06-29
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@TableName("t05_case")
-@ApiModel(value = "T05CaseEntity对象", description = "战果案例填报")
-public class T05CaseEntity extends Model<T05CaseEntity> {
+@TableName("t18_sys_update")
+@ApiModel(value = "T18SysUpdateEntity对象", description = "热线信息表")
+public class T18SysUpdateEntity extends Model<T18SysUpdateEntity> {
 
     private static final long serialVersionUID = 1L;
 
@@ -30,29 +30,20 @@ public class T05CaseEntity extends Model<T05CaseEntity> {
     @TableId(value = "id", type = IdType.AUTO)
     private Long id;
 
-    @ApiModelProperty(value = "填报人id")
-    private Long personId;
+    @ApiModelProperty(value = "日期")
+    private String recordDay;
 
-    @ApiModelProperty(value = "填报人名称")
-    private String personName;
+    @ApiModelProperty(value = "模块")
+    private String moduleName;
 
-    @ApiModelProperty(value = "填报人电话")
-    private String personPhone;
+    @ApiModelProperty(value = "描述")
+    private String description;
 
-    @ApiModelProperty(value = "填报人警号")
-    private String personNo;
+    @ApiModelProperty(value = "类型")
+    private String type;
 
-    @ApiModelProperty(value = "标题")
-    private String caseTitle;
-
-    @ApiModelProperty(value = "内容")
-    private String caseContent;
-
-    @ApiModelProperty(value = "时间")
-    private String caseTime;
-
-    @ApiModelProperty(value = "类型,0:重大案例, 1:战果")
-    private String caseType;
+    @ApiModelProperty(value = "排序字段")
+    private Integer sort;
 
     @ApiModelProperty(value = "创建时间")
     private String createTime;
