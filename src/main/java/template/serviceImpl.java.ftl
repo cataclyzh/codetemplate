@@ -47,6 +47,15 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     }
 
     @Override
+    void saveOrUpdate(${entity} o){
+        if(o.getId() == null || o.getId() == 0){
+            insert(o);
+        }else{
+            update(o)
+        }
+    }
+
+    @Override
         public void insert(List<${entity}> list){
             for(${entity} o : list){
             insert(o);
