@@ -20,8 +20,8 @@ public class CodeGenMain {
         String tableNames = builder.getTableNameStrFromFile("d:/ff/table-names.txt");
 
 //        tableNames = "sys_user,sys_user_role";
-        tableNames = "t18_sys_update";
-//        tableNames = "t02_apply";
+//        tableNames = "t21_leader_comment";
+        tableNames = "t22_tel_leader_comment";
         log.info("table names: {}", tableNames);
         new CodeGenService().execute(
                 builder.buildPackageConfig(),

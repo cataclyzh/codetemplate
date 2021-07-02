@@ -26,5 +26,4 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
 
     void addTestData();
 
-    void saveOrUpdate(${entity} o);
 }
