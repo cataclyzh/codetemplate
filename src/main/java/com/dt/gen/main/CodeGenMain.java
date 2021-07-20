@@ -21,7 +21,10 @@ public class CodeGenMain {
 
 //        tableNames = "sys_user,sys_user_role";
 //        tableNames = "t21_leader_comment";
-        tableNames = "t22_tel_leader_comment";
+//        tableNames = "t25_sjhc_record_info";
+//        tableNames = "t23_sjhc,t24_sjhc_record,t25_sjhc_record_info";
+//        tableNames = "t26_sjdd,t27_sjdd_record,t28_sjdd_record_info";
+          tableNames = "v01_test1";
         log.info("table names: {}", tableNames);
         new CodeGenService().execute(
                 builder.buildPackageConfig(),

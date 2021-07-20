@@ -66,7 +66,8 @@ public class ${table.controllerName} {
 
     @ApiOperation(value = "${table.comment!}分页查询", notes = "page")
     @PostMapping("/page")
-    public PageReplyResponse<List<${entity}>> page(@RequestBody PageRequest<${entity}> pageRequest,
+    public PageReplyResponse<List<${entity}>> page(
+            @RequestBody PageRequest<${entity}> pageRequest,
             @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
             HttpServletRequest request) {
@@ -84,9 +85,9 @@ public class ${table.controllerName} {
         IPage<${entity}> page = new Page<>(pageRequest.getCurrentPage(),
                 pageRequest.getPageSize(), true);
         ${entity} ${'${entity}'?uncap_first} = pageRequest.getData();
-        IPage<${entity}> resultList = ${'${table.serviceName}'?uncap_first}.selectPage(page, ${'${entity}'?uncap_first});
+        IPage<${entity}> resultPage = ${'${table.serviceName}'?uncap_first}.selectPage(page, ${'${entity}'?uncap_first});
 
-        return PageReplyResponse.page(resultList);
+        return PageReplyResponse.page(resultPage);
     }
 
     @ApiOperation(value = "${table.comment!}列表查询", notes = "list")
@@ -116,7 +117,8 @@ public class ${table.controllerName} {
 
     @ApiOperation(value = "增加记录", notes = "insert")
     @PostMapping("/insert")
-    public ReplyResponse<${entity}> insert(@RequestBody RequestWrapper<${entity}> requestWrapper,
+    public ReplyResponse<${entity}> insert(
+            @RequestBody RequestWrapper<${entity}> requestWrapper,
             @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
             HttpServletRequest request) {
@@ -136,7 +138,8 @@ public class ${table.controllerName} {
 
     @ApiOperation(value = "修改记录", notes = "update")
     @PostMapping("/update")
-    public ReplyResponse<${entity}> update(@RequestBody RequestWrapper<${entity}> requestWrapper,
+    public ReplyResponse<${entity}> update(
+            @RequestBody RequestWrapper<${entity}> requestWrapper,
             @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
             HttpServletRequest request) {
@@ -156,7 +159,8 @@ public class ${table.controllerName} {
 
     @ApiOperation(value = "删除记录", notes = "delete")
     @PostMapping("/delete")
-    public ReplyResponse<${entity}> delete(@RequestBody RequestWrapper<Long> requestWrapper,
+    public ReplyResponse<${entity}> delete(
+            @RequestBody RequestWrapper<Long> requestWrapper,
             @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
             HttpServletRequest request) {
@@ -176,8 +180,9 @@ public class ${table.controllerName} {
 
     @ApiOperation(value = "明细记录", notes = "detail")
     @PostMapping("/detail")
-    public ReplyResponse<${entity}> detail(@RequestBody RequestWrapper<Long> requestWrapper,
-        @RequestHeader(value = "current-user") String userJson,
+    public ReplyResponse<${entity}> detail(
+            @RequestBody RequestWrapper<Long> requestWrapper,
+            @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
             HttpServletRequest request) {
         MyHttpTools.printHeaderInfo(request);
