@@ -9,7 +9,7 @@ import com.dt.gen.service.CodeGenService;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class CodeGenMain {
+public class TableCodeGenMain {
 
     public static void main(String[] args) {
 
@@ -24,9 +24,9 @@ public class CodeGenMain {
 //        tableNames = "t25_sjhc_record_info";
 //        tableNames = "t23_sjhc,t24_sjhc_record,t25_sjhc_record_info";
 //        tableNames = "t26_sjdd,t27_sjdd_record,t28_sjdd_record_info";
-          tableNames = "v01_test1";
+        tableNames = "t29_sjhc,t30_sjhc_sub1,t31_sjhc_sub2";
         log.info("table names: {}", tableNames);
-        new CodeGenService().execute(
+        new CodeGenService("/template/").execute(
                 builder.buildPackageConfig(),
                 builder.buildDataSourceConfig(),
                 tableNames);

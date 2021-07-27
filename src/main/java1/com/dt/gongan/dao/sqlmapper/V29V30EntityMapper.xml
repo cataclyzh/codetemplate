@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dt.gongan.dao.mapper.V29V30Mapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dt.gongan.dao.entity.V29V30Entity">
+        <result column="id" property="id" />
+        <result column="t30_id" property="t30Id" />
+        <result column="t29_id" property="t29Id" />
+        <result column="t30_org_id" property="t30OrgId" />
+        <result column="t30_org_name" property="t30OrgName" />
+        <result column="t30_sign_user_id" property="t30SignUserId" />
+        <result column="t30_sign_user_name" property="t30SignUserName" />
+        <result column="t30_sign_user_mobile" property="t30SignUserMobile" />
+        <result column="t30_sign_org_id" property="t30SignOrgId" />
+        <result column="t30_sign_org_name" property="t30SignOrgName" />
+        <result column="t30_sign_org_type" property="t30SignOrgType" />
+        <result column="t30_fankui_user_id" property="t30FankuiUserId" />
+        <result column="t30_fankui_user_name" property="t30FankuiUserName" />
+        <result column="t30_fankui_user_mobile" property="t30FankuiUserMobile" />
+        <result column="t30_fankui_org_id" property="t30FankuiOrgId" />
+        <result column="t30_fankui_org_name" property="t30FankuiOrgName" />
+        <result column="t30_fankui_org_type" property="t30FankuiOrgType" />
+        <result column="t30_tuisong_user_id" property="t30TuisongUserId" />
+        <result column="t30_tuisong_user_name" property="t30TuisongUserName" />
+        <result column="t30_tuisong_user_mobile" property="t30TuisongUserMobile" />
+        <result column="t30_tuisong_org_id" property="t30TuisongOrgId" />
+        <result column="t30_tuisong_org_name" property="t30TuisongOrgName" />
+        <result column="t30_tuisong_org_type" property="t30TuisongOrgType" />
+        <result column="t30_sjhc_status" property="t30SjhcStatus" />
+        <result column="t30_tuisong_comment" property="t30TuisongComment" />
+        <result column="t30_tuisong_time" property="t30TuisongTime" />
+        <result column="t30_tuisong_sign_time" property="t30TuisongSignTime" />
+        <result column="t30_sign_status" property="t30SignStatus" />
+        <result column="t30_fankui_time" property="t30FankuiTime" />
+        <result column="t30_fankui_attachement_ids" property="t30FankuiAttachementIds" />
+        <result column="t30_turn_sign_comment" property="t30TurnSignComment" />
+        <result column="t30_contact_name" property="t30ContactName" />
+        <result column="t30_contact_mobile" property="t30ContactMobile" />
+        <result column="t30_sjhc_requirement" property="t30SjhcRequirement" />
+        <result column="t30_fankui_hegao_name" property="t30FankuiHegaoName" />
+        <result column="t30_fankui_qianfa_name" property="t30FankuiQianfaName" />
+        <result column="t30_fankui_shuju_chuli" property="t30FankuiShujuChuli" />
+        <result column="t30_fankui_jieguoliang_tiao" property="t30FankuiJieguoliangTiao" />
+        <result column="t30_fankui_jieguoliang_ren" property="t30FankuiJieguoliangRen" />
+        <result column="t30_fankui_dangwei" property="t30FankuiDangwei" />
+        <result column="t30_fankui_zhuzhi" property="t30FankuiZhuzhi" />
+        <result column="t30_fankui_yijian" property="t30FankuiYijian" />
+        <result column="t30_create_time" property="t30CreateTime" />
+        <result column="t30_update_time" property="t30UpdateTime" />
+        <result column="t29_tuisong_user_id" property="t29TuisongUserId" />
+        <result column="t29_tuisong_user_name" property="t29TuisongUserName" />
+        <result column="t29_tuisong_user_mobile" property="t29TuisongUserMobile" />
+        <result column="t29_tuisong_org_id" property="t29TuisongOrgId" />
+        <result column="t29_tuisong_org_name" property="t29TuisongOrgName" />
+        <result column="t29_tuisong_org_type" property="t29TuisongOrgType" />
+        <result column="t29_tuisong_comment" property="t29TuisongComment" />
+        <result column="t29_tuisong_time" property="t29TuisongTime" />
+        <result column="t29_tuisong_title" property="t29TuisongTitle" />
+        <result column="t29_tuisong_content" property="t29TuisongContent" />
+        <result column="t29_xuqiuzhuti" property="t29Xuqiuzhuti" />
+        <result column="t29_qh" property="t29Qh" />
+        <result column="t29_nf" property="t29Nf" />
+        <result column="t29_sjhc_status" property="t29SjhcStatus" />
+        <result column="t29_lxr" property="t29Lxr" />
+        <result column="t29_lxr_mobile" property="t29LxrMobile" />
+        <result column="t29_sjhc_requirement" property="t29SjhcRequirement" />
+        <result column="t29_service_no" property="t29ServiceNo" />
+        <result column="t29_sjhc_type" property="t29SjhcType" />
+        <result column="t29_attachment_ids" property="t29AttachmentIds" />
+        <result column="t29_create_time" property="t29CreateTime" />
+        <result column="t29_update_time" property="t29UpdateTime" />
+    </resultMap>
+
+</mapper>

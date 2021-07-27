@@ -24,6 +24,12 @@ import java.util.List;
 @Slf4j
 public class CodeGenService {
 
+    private String templatePath;
+
+    public CodeGenService(String templatePath){
+        this.templatePath = templatePath;
+    }
+
     private String projectPath = System.getProperty("user.dir").replace("\\", "/");
 
     public void execute(PackageConfig packageConfig, DataSourceConfig dataSourceConfig, String includeTableNames) {
@@ -116,7 +122,8 @@ public class CodeGenService {
     }
 
     private String getTemplateBasepath(){
-        return "/template/";
+//        return "/template/";
+        return templatePath;
     }
 
 }

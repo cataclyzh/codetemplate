@@ -117,7 +117,7 @@ public class ${table.controllerName} {
 
     @ApiOperation(value = "增加记录", notes = "insert")
     @PostMapping("/insert")
-    public ReplyResponse<${entity}> insert(
+    public ReplyResponse<String> insert(
             @RequestBody RequestWrapper<${entity}> requestWrapper,
             @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
@@ -138,7 +138,7 @@ public class ${table.controllerName} {
 
     @ApiOperation(value = "修改记录", notes = "update")
     @PostMapping("/update")
-    public ReplyResponse<${entity}> update(
+    public ReplyResponse<String> update(
             @RequestBody RequestWrapper<${entity}> requestWrapper,
             @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
@@ -159,7 +159,7 @@ public class ${table.controllerName} {
 
     @ApiOperation(value = "删除记录", notes = "delete")
     @PostMapping("/delete")
-    public ReplyResponse<${entity}> delete(
+    public ReplyResponse<String> delete(
             @RequestBody RequestWrapper<Long> requestWrapper,
             @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
@@ -173,7 +173,7 @@ public class ${table.controllerName} {
         LoginUserRestVo user = databaseManager.queryUserDetail(loginUserDto.getId());
         log.info("user: {}", user);
 
-        log.info("update request: {}", requestWrapper);
+        log.info("delete request: {}", requestWrapper);
         ${'${table.serviceName}'?uncap_first}.removeById(requestWrapper.getData());
         return ReplyResponse.ok();
     }
