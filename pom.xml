@@ -83,7 +83,12 @@
             <artifactId>freemarker</artifactId>
             <version>2.3.30</version>
         </dependency>
-
+        <!-- druid -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>RELEASE</version>
+        </dependency>
         <!-- code helper -->
         <dependency>
             <groupId>org.projectlombok</groupId>
