@@ -42,7 +42,7 @@ public class CodeGenService {
 
         String outputBaseDir = projectPath + "/src/main/java1/";
         globalConfig.setOutputDir(outputBaseDir);
-        globalConfig.setAuthor("铠甲勇士");
+        globalConfig.setAuthor("铠甲");
         globalConfig.setOpen(false);
         globalConfig.setServiceName("%sService");
         globalConfig.setServiceImplName("%sServiceImpl");

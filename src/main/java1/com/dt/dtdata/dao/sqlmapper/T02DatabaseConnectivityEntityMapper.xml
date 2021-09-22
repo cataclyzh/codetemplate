@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dt.dtdata.dao.mapper.T02DatabaseConnectivityMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dt.dtdata.dao.entity.T02DatabaseConnectivityEntity">
+        <id column="id" property="id" />
+        <result column="database_id" property="databaseId" />
+        <result column="conn_flag" property="connFlag" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+</mapper>

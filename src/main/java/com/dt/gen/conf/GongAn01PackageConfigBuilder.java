@@ -13,15 +13,7 @@ public class GongAn01PackageConfigBuilder implements PackageConfigBuilder{
 
     @Override
     public PackageConfig buildPackageConfig() {
-        PackageConfig pc = new PackageConfig();
-        pc.setParent("com.dt");
-        pc.setEntity("dao.entity");
-        pc.setService("dao.service");
-        pc.setServiceImpl("dao.service.impl");
-        pc.setController("dao.controller");
-        pc.setMapper("dao.mapper");
-        pc.setModuleName("gongan");
-        return pc;
+        return getPackageConfig("gongan", "dt");
     }
 
     @Override

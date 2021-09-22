@@ -1,5 +1,6 @@
 package com.dt.gen.main;
 
+import com.dt.gen.conf.DtdataPackageConfigBuilder;
 import com.dt.gen.conf.GongAn01PackageConfigBuilder;
 import com.dt.gen.conf.PackageConfigBuilder;
 import com.dt.gen.service.CodeGenService;
@@ -10,13 +11,14 @@ public class ViewCodeGenMain {
 
     public static void main(String[] args) {
 
-        PackageConfigBuilder builder = new GongAn01PackageConfigBuilder();
-        String tableNames = "v_user,v29_v30,v30_v31,v31_sjhc_sub2";
-        log.info("table names: {}", tableNames);
+        PackageConfigBuilder builder = new DtdataPackageConfigBuilder();
+        String viewNames = "v01_table,v03_column,v02_database";
+
+        log.info("view names: {}", viewNames);
         new CodeGenService("/template_v/").execute(
                 builder.buildPackageConfig(),
                 builder.buildDataSourceConfig(),
-                tableNames);
+                viewNames);
     }
 
 
