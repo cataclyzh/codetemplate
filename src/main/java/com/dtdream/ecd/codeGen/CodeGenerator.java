@@ -7,9 +7,11 @@ import com.dtdream.ecd.codeGen.entity.gen.TableColumn;
 import com.dtdream.ecd.codeGen.mapper.JsonMapper;
 import com.dtdream.ecd.codeGen.util.GenUtils;
 import com.dtdream.ecd.codeGen.utils.FileUtils;
+import com.dtdream.ecd.codeGen.utils.JDBCTemplateUtils;
 import com.dtdream.ecd.codeGen.utils.StringUtils;
 import com.dtdream.ecd.codeGen.utils.SystemPath;
 import com.google.common.collect.Lists;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.io.File;
 import java.io.IOException;
@@ -52,6 +54,7 @@ public class CodeGenerator {
 
 	private static String generateDefinitionFilePath(String fileName){
 		String result=definitionDir+fileName;
+		System.out.println(result);
 		return result;
 	}
 
@@ -119,26 +122,12 @@ public class CodeGenerator {
 		Map<String, Object> model = GenUtils.getDataModel(genScheme);
 
 		//生成代码
-		generateCode(templatePath,result, model, "/sql");
 		generateCode(templatePath,result, model, "/sql_plugin");
-		generateCode(templatePath,result, model, "/entity");
-		generateCode(templatePath,result, model, "/entityExample");
-		generateCode(templatePath,result, model, "/dao");
-		generateCode(templatePath,result, model, "/mapper");
-		generateCode(templatePath,result, model, "/crudservice");
-		generateCode(templatePath,result, model, "/service");
-		generateCode(templatePath,result, model, "/crudcontroller");
-		generateCode(templatePath,result, model, "/controller");
-		generateCode(templatePath,result, model, "/entityVO");
-		generateCode(templatePath,result, model, "/controllerTest");
-
+//		JdbcTemplate jdbcTemplate= JDBCTemplateUtils.genJdbcTemplate();
 		generateCode(templatePath,result, model, "/gavue/list");
 		generateCode(templatePath,result, model, "/gavue/page");
 		generateCode(templatePath,result, model, "/gavue/detail");
 
-		generateCode(templatePath,result, model, "/vue/api_js");
-		generateCode(templatePath,result, model, "/vue/index");
-		generateCode(templatePath,result, model, "/vue/view");
 		return result.toString();
 	}
 

@@ -1,17 +1,25 @@
 package com.dtdream.ecd.codeGen.utils;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+
 /**
  * @description 得到当前应用的系统路径
  */
 public class SystemPath {
 
-	public static String getSysPath() {
+	public static String getSysPath()  {
 		String path = Thread.currentThread().getContextClassLoader()
 				.getResource("").toString();
 		String temp = path.replaceFirst("file:/", "").replaceFirst(
 				"WEB-INF/classes/", "");
 		String separator = System.getProperty("file.separator");
 		String resultPath = temp.replaceAll("/", separator + separator);
+		try {
+			resultPath= URLDecoder.decode(resultPath,"utf-8");
+		} catch (UnsupportedEncodingException e) {
+		}
 		return resultPath;
 	}
 
