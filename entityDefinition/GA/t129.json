@@ -1,0 +1,123 @@
+{
+  "projectName": "systemservice",
+  "packageName": "com.dtdream.ecd.sys",
+  "apiPath": "sys",
+  "uiModuleName": "",
+  "functionName": "数据核查令",
+  "functionNameSimple": "",
+  "functionAuthor": "MoWei",
+  "table": {
+    "number": "129",
+    "name": "sjhc",
+    "comments": "数据核查令",
+    "className": "Sjhc",
+    "parentTable": "",
+    "parentTableFk": "",
+    "columnList": [
+      {
+        "name": "tuisong_user_id",
+        "comments": "推送用户ID",
+        "jdbcType": "bigint(20)",
+        "javaType": "Long",
+        "javaField": "tuisongUserId",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "tuisong_time",
+        "comments": "推送时间",
+        "jdbcType": "varchar(200)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "tuisong_title",
+        "comments": "推送服务主题",
+        "jdbcType": "varchar(255)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "tuisong_content",
+        "comments": "推送服务内容",
+        "jdbcType": "varchar(2000)",
+        "uiControl":"textArea",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "xuqiuzhuti",
+        "comments": "需求主题",
+        "jdbcType": "varchar(500)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "qh",
+        "comments": "期号",
+        "jdbcType": "bigint(20)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "nf",
+        "comments": "年份",
+        "jdbcType": "varchar(20)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "sjhc_status",
+        "comments": "当前状态：待补充,已推送",
+        "jdbcType": "varchar(100)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "lxr",
+        "comments": "联系人",
+        "jdbcType": "varchar(100)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "lxr_mobile",
+        "comments": "联系人电话",
+        "jdbcType": "varchar(100)",
+        "isPk": "0",
+        "isQuery":"1",
+        "queryType":"datetime",
+        "isNull": "0"
+      },
+      {
+        "name": "sjhc_requirement",
+        "comments": "紧急程度",
+        "jdbcType": "varchar(100)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "service_no",
+        "comments": "服务单号",
+        "jdbcType": "varchar(200)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "sjhc_type",
+        "comments": "类型",
+        "jdbcType": "varchar(500)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "attachment_ids",
+        "comments": "附件ids",
+        "jdbcType": "varchar(500)",
+        "uiControl":"upload",
+        "isPk": "0",
+        "isNull": "0"
+      }
+    ]
+  }
+}

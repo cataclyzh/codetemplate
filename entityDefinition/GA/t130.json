@@ -1,0 +1,187 @@
+{
+  "projectName": "systemservice",
+  "packageName": "com.dtdream.ecd.sys",
+  "apiPath": "sys",
+  "uiModuleName": "",
+  "functionName": "数据核查令",
+  "functionNameSimple": "",
+  "functionAuthor": "MoWei",
+  "table": {
+    "number": "130",
+    "name": "sjhc_sub1",
+    "comments": "数据核查令部门接收信息",
+    "className": "SjhcSub1",
+    "parentTable": "",
+    "parentTableFk": "",
+    "columnList": [
+      {
+        "name": "t129_id",
+        "comments": "数据核查令id",
+        "jdbcType": "bigint(20)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "jieshou_org_id",
+        "comments": "接收部门id",
+        "jdbcType": "bigint(20)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "sign_user_id",
+        "comments": "签收人id",
+        "jdbcType": "bigint(20)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "fankui_user_id",
+        "comments": "反馈人id",
+        "jdbcType": "bigint(20)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "tuisong_user_id",
+        "comments": "推送人id",
+        "jdbcType": "bigint(20)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "sjhc_status",
+        "comments": "当前状态：待签收、待反馈、完结",
+        "jdbcType": "varchar(100)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "tuisong_comment",
+        "comments": "推送意见",
+        "jdbcType": "varchar(2000)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "tuisong_time",
+        "comments": "推送时间",
+        "jdbcType": "varchar(20)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "tuisong_sign_time",
+        "comments": "推送签收时间",
+        "jdbcType": "varchar(20)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "sign_status",
+        "comments": "签收结果（0签收）",
+        "jdbcType": "varchar(300)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "fankui_time",
+        "comments": "反馈时间",
+        "jdbcType": "varchar(20)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "fankui_attachement_ids",
+        "comments": "反馈附件ids",
+        "jdbcType": "varchar(100)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "turn_sign_comment",
+        "comments": "签收意见",
+        "jdbcType": "varchar(100)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "contact_name",
+        "comments": "联系人",
+        "jdbcType": "varchar(100)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "contact_mobile",
+        "comments": "联系电话",
+        "jdbcType": "varchar(200)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "sjhc_requirement",
+        "comments": "紧急程度",
+        "jdbcType": "varchar(500)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "fankui_hegao_name",
+        "comments": "反馈核稿人",
+        "jdbcType": "varchar(100)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "fankui_qianfa_name",
+        "comments": "反馈签发人",
+        "jdbcType": "varchar(100)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "fankui_shuju_chuli",
+        "comments": "反馈数据处理",
+        "jdbcType": "varchar(100)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "fankui_jieguoliang_tiao",
+        "comments": "反馈结果量(条)",
+        "jdbcType": "varchar(100)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "fankui_jieguoliang_ren",
+        "comments": "反馈结果量(人)",
+        "jdbcType": "varchar(100)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "fankui_dangwei",
+        "comments": "反馈单位",
+        "jdbcType": "varchar(100)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "fankui_zhuzhi",
+        "comments": "反馈组织",
+        "jdbcType": "varchar(100)",
+        "isPk": "0",
+        "isNull": "0"
+      },
+      {
+        "name": "fankui_yijian",
+        "comments": "反馈意见",
+        "jdbcType": "varchar(100)",
+        "isPk": "0",
+        "isNull": "0"
+      }
+    ]
+  }
+}

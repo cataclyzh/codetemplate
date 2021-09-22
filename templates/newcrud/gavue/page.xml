@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+	<name>ga_vue_js</name>
+	<filePath>genResult/pages/views/service/index/children/st/</filePath>
+	<fileName>${table.name}-page.vue</fileName>
+	<content><![CDATA[
+<!--${functionName}管理-->
+<template>
+  <div class="often-application">
+    <div class="search">
+      <el-row>
+  <#list table.columnList as c>
+        <el-col :md="12" class="dates">
+          <span class="dateSpan">${c.comments}：</span>
+          <el-input v-model="${c.javaField}" class="nameCheck" />
+        </el-col>
+  </#list>
+        <el-col :md="12" class="dates times">
+          <span class="dateSpan">XX时间：</span>
+          <el-date-picker
+            v-model="startTime"
+            type="date"
+            value-format="yyyy-MM-dd"
+            placeholder="选择开始日期"
+            :picker-options="startTimes"
+          />
+          <el-date-picker
+            v-model="endTime"
+            type="date"
+            value-format="yyyy-MM-dd"
+            placeholder="选择结束日期"
+            :picker-options="endTimes"
+          />
+        </el-col>
+      </el-row>
+      <div class="centers">
+        <el-button type="primary" class="checkResult" @click="checkResult">
+          查询
+        </el-button>
+        <el-button
+          type="primary"
+          class="checkResult"
+          icon="el-icon-circle-plus-outline"
+          @click="$router.push(`/service/${table.name}Insert`)"
+        >
+          新增${table.comments}
+        </el-button>
+      </div>
+    </div>
+    <data-list
+      :table-data="tableList.data"
+      :page="page"
+      :page-size="pageSize"
+      @updateData="updateData"
+      @deleteData="deleteData"
+      @viewData="viewData"
+      <!--@transferData="transferData"-->
+    />
+    <!-- 分页 -->
+    <div class="pages">
+      <el-pagination
+        background
+        :current-page="page"
+        layout="total,prev,pager,next"
+        :total="total"
+        :page-size="pageSize"
+        @current-change="handlePageChange"
+      />
+    </div>
+  </div>
+</template>
+
+<script>
+import {
+  deleteList,
+  localData,
+  getlistJZ,
+  getlistDS,
+  assign,
+  getOrgIds
+} from '@/api/stdispatch'
+import dataList from './${table.name}-list'
+
+export default {
+  components: {
+    dataList
+  },
+  data() {
+    return {
+      // 开始时间
+      startTimes: {
+        disabledDate: (time) => {
+          if (this.endTime != '' && this.endTime != null) {
+            return time.getTime() > new Date(this.endTime).getTime() - 8.64e7
+          }
+        }
+      },
+      // 结束时间
+      endTimes: {
+        disabledDate: (time) => {
+          return time.getTime() < new Date(this.startTime).getTime() - 8.64e7
+        }
+      },
+
+  <#list table.columnList as c>
+      ${c.javaField}: '',
+  </#list>
+      startTime: '',
+      endTime: '',
+      total: 0,
+      page: 1,
+      pageSize: 10,
+      tableList: {
+        title: '重要案例',
+        data: []
+      }
+    }
+  },
+  beforeRouteEnter(to, from, next) {
+    if (from.path.startsWith('/service')) {
+      to.meta.isBack = true
+    }
+    next()
+  },
+  mounted() {
+    this.getTableList()
+  },
+  methods: {
+    // 查看
+    async viewData(row) {
+      this.$router.push({ path: '/service/${table.name}Detail', query: { row: row.id }})
+    },
+    // 删除
+    async deleteData(id) {
+      /* 提示消息*/
+      const confirmResult = await this.$confirm(
+        '确定要删除此条${table.comments}吗?',
+        '提示',
+        {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }
+      ).catch((err) => err)
+      /* 如果用户确认打印confirm,如果用户取消显示cancel*/
+      if (confirmResult !== 'confirm') {
+        return this.$message.info('已取消删除!')
+      } else {
+        // ('确认了删除')
+        const res = await deleteList({ data: id })
+        if (res.returnCode == '20000') {
+          this.getTableList()
+        }
+      }
+    },
+
+    // 获取数据
+    async getTableList() {
+      const res = await localData({
+        currentPage: this.page,
+        pageSize: this.pageSize,
+        data: {
+  <#list table.columnList as c>
+          ${c.javaField}: this.${c.javaField},
+  </#list>
+          startTime: this.startTime,
+          endTime: this.endTime
+        }
+      })
+      if (!res.data.length && this.page > 1) {
+        this.page--
+        this.getTableList()
+        return
+      }
+      this.tableList.data = res.data
+      this.page = res.currentPage
+      this.total = res.totalSize
+    },
+    // 编辑
+    updateData(row) {
+      this.$router.push({ path: '/service/${table.name}Update', query: { row: row.id }})
+    },
+    // 查询
+    checkResult() {
+      this.startTime = this.startTime ? this.startTime : ''
+      this.endTime = this.endTime ? this.endTime : ''
+      this.page = 0
+      this.getTableList()
+    },
+    // 分页
+    handlePageChange(val) {
+      this.page = val
+      this.getTableList()
+    }
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+@import "~@/assets/css/variables.scss";
+.often-application {
+  background-color: $boxBg;
+  box-sizing: border-box;
+  padding-top: 10px;
+  border-radius: 15px;
+  color: $textColor;
+  ::v-deep .el-checkbox__input.is-disabled.is-checked .el-checkbox__inner {
+    background-color: #409eff;
+    border-color: #409eff;
+  }
+  ::v-deep .el-checkbox__input.is-disabled + span.el-checkbox__label {
+    color: #409eff;
+  }
+  ::v-deep .el-input__inner {
+    background-color: $inputBg;
+    border: 1px solid $borderColor;
+  }
+  ::v-deep .el-dialog {
+    background-color: $boxBg;
+    border: 1px solid $dialogBorder;
+  }
+  ::v-deep .el-checkbox {
+    color: $textColor;
+  }
+  ::v-deep .upBtn {
+    background-color: $inputBg;
+    border: 1px solid $borderColor;
+  }
+  ::v-deep .el-dialog__title {
+    color: $textColor;
+  }
+
+  .el-row {
+    width: 100%;
+  }
+  .search {
+    /* display: flex; */
+    /* padding: 30px; */
+
+    /* font-size: 0.06rem; */
+    .el-row {
+      width: 100%;
+    }
+    ::v-deep .el-range-editor.el-input__inner {
+      width: calc(100% - 35%);
+    }
+    .nameCheck {
+      width: calc(100% - 35%);
+    }
+    .dates {
+      margin-bottom: 15px;
+      ::v-deep .el-range-editor.el-input__inner {
+        width: calc(100% - 35%);
+      }
+
+      .dateSpan {
+        display: inline-block;
+        width: 20%;
+        white-space: nowrap;
+      }
+    }
+    .times {
+      ::v-deep .el-date-editor.el-input {
+        width: calc(100% - 67%) !important;
+      }
+    }
+    .centers {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 15px;
+      margin-bottom: 15px;
+      /* margin-left: 35%; */
+    }
+    .resuleName {
+      margin-left: 5%;
+      width: 20%;
+      margin-right: 5%;
+    }
+    .checkResult {
+      padding-left: 29px;
+      padding-right: 20px;
+      /* width: calc(100% - 20%); */
+      /* display: flex;
+      justify-content: center;
+      align-items: center; */
+    }
+    .checkBox {
+      width: 100%;
+      .typeSelete {
+        width: calc(100% - 35%);
+      }
+      span {
+        width: 35%;
+      }
+    }
+  }
+}
+.el-pagination {
+  padding: 0 20px 20px 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+</style>
+
+
+]]>
+	</content>
+</template>

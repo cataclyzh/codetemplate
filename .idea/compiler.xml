@@ -10,6 +10,8 @@
         <module name="codegen" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="8" />
+    <bytecodeTargetLevel target="8">
+      <module name="codegen" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

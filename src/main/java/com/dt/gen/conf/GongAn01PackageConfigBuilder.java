@@ -28,10 +28,10 @@ public class GongAn01PackageConfigBuilder implements PackageConfigBuilder{
     public DataSourceConfig buildDataSourceConfig() {
         //dm_process
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://rm-bp10e72u12e9443m6mo.mysql.rds.aliyuncs.com:3306/gongan01?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai");
+        dsc.setUrl("jdbc:mysql://36.137.53.40:3306/gongan01?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai");
         dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("mysqladmin");
-        dsc.setPassword("DtDream@0209");
+        dsc.setUsername("root");
+        dsc.setPassword("DtDream0209");
         return dsc;
     }
 }
