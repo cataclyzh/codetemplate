@@ -108,7 +108,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
             <#elseif field.propertyName == 'createTime'>
             <#elseif field.propertyName == 'updateTime'>
             <#elseif field.propertyType == 'String' && field.name != "del_flag">
-        o.set${'${field.propertyName}'?cap_first}("${field.propertyName}" + i);
+        o.set${'${field.propertyName}'?cap_first}("${field.propertyName}");
             <#elseif field.name != "del_flag" && (field.propertyType == 'Integer')>
         o.set${'${field.propertyName}'?cap_first}(111 + i);
             <#elseif field.name != "del_flag" && (field.propertyType == 'Long')>

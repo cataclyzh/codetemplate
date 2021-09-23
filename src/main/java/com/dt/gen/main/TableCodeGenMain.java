@@ -1,5 +1,7 @@
 package com.dt.gen.main;
 
+import com.dt.gen.conf.DtdataPackageConfigBuilder;
+import com.dt.gen.conf.GaSysPackageConfigBuilder;
 import com.dt.gen.conf.GongAn01PackageConfigBuilder;
 import com.dt.gen.conf.NewDtdataPackageConfigBuilder;
 import com.dt.gen.conf.PackageConfigBuilder;
@@ -8,18 +10,19 @@ import com.dt.gen.service.CodeGenService;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-public class CodeGenMain {
+public class TableCodeGenMain {
 
     public static void main(String[] args) {
-//        PackageConfigBuilder builder = new NewDtdataPackageConfigBuilder();
-        PackageConfigBuilder builder = new GongAn01PackageConfigBuilder();
-//        String tableNames = builder.getTableNameStrFromFile("d:/ff/table-names.txt");
-        String tableNames = "t129_sjhc,v129_sjhc,t130_sjhc_sub1,v130_sjhc_sub1";
+
+        PackageConfigBuilder builder = new DtdataPackageConfigBuilder();
+        String tableNames = "t02_database_connectivity";
+
         log.info("table names: {}", tableNames);
-        new CodeGenService().execute(
+        new CodeGenService("/template/").execute(
                 builder.buildPackageConfig(),
                 builder.buildDataSourceConfig(),
                 tableNames);
     }
+
 
 }

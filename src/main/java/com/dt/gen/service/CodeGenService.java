@@ -24,40 +24,46 @@ import java.util.List;
 @Slf4j
 public class CodeGenService {
 
+    private String templatePath;
+
+    public CodeGenService(String templatePath){
+        this.templatePath = templatePath;
+    }
+
     private String projectPath = System.getProperty("user.dir").replace("\\", "/");
 
     public void execute(PackageConfig packageConfig, DataSourceConfig dataSourceConfig, String includeTableNames) {
         // 代码生成器
-        AutoGenerator mpg = new AutoGenerator();
+        AutoGenerator autoGenerator = new AutoGenerator();
 
         // 全局配置
-        GlobalConfig gc = new GlobalConfig();
-        gc.setSwagger2(true);
+        GlobalConfig globalConfig = new GlobalConfig();
+        globalConfig.setSwagger2(true);
 
         String outputBaseDir = projectPath + "/src/main/java1/";
-        gc.setOutputDir(outputBaseDir);
-        gc.setAuthor("铠甲勇士");
-        gc.setOpen(false);
-        gc.setServiceName("%sService");
-        gc.setServiceImplName("%sServiceImpl");
+        globalConfig.setOutputDir(outputBaseDir);
+        globalConfig.setAuthor("铠甲");
+        globalConfig.setOpen(false);
+        globalConfig.setServiceName("%sService");
+        globalConfig.setServiceImplName("%sServiceImpl");
         // 自定义文件命名，注意 %s 会自动填充表实体属性！
-        gc.setMapperName("%sMapper");
-        gc.setXmlName("%sMapper");
-        gc.setEntityName("%sEntity");
-        gc.setFileOverride(true);
-        gc.setActiveRecord(true);
+        globalConfig.setMapperName("%sMapper");
+        globalConfig.setXmlName("%sMapper");
+        globalConfig.setEntityName("%sEntity");
+        globalConfig.setFileOverride(true);
+        globalConfig.setActiveRecord(true);
         // XML 二级缓存
-        gc.setEnableCache(false);
-        gc.setBaseResultMap(true);
-        gc.setBaseColumnList(false);
+        globalConfig.setEnableCache(false);
+        globalConfig.setBaseResultMap(true);
+        globalConfig.setBaseColumnList(false);
         // gc.setSwagger2(true); 实体属性 Swagger2 注解
 
-        mpg.setGlobalConfig(gc);
-        mpg.setDataSource(dataSourceConfig);
-        mpg.setPackageInfo(packageConfig);
+        autoGenerator.setGlobalConfig(globalConfig);
+        autoGenerator.setDataSource(dataSourceConfig);
+        autoGenerator.setPackageInfo(packageConfig);
 
         // 自定义配置
-        InjectionConfig cfg = new InjectionConfig() {
+        InjectionConfig injectionConfig = new InjectionConfig() {
             @Override
             public void initMap() {
                 // to do nothing
@@ -70,9 +76,9 @@ public class CodeGenService {
         // String templatePath = "/templates/mapper.xml.vm";
 
         // 自定义输出配置
-        List<FileOutConfig> focList = new ArrayList<>();
+        List<FileOutConfig> fileOutConfigList = new ArrayList<>();
         // 自定义配置会被优先输出
-        focList.add(new FileOutConfig(templatePath) {
+        fileOutConfigList.add(new FileOutConfig(templatePath) {
             @Override
             public String outputFile(TableInfo tableInfo) {
                 // 自定义输出文件名 ， 如果你 Entity 设置了前后缀、此处注意 xml 的名称会跟着发生变化！！
@@ -84,8 +90,8 @@ public class CodeGenService {
                 return outputFileStr;
             }
         });
-        cfg.setFileOutConfigList(focList);
-        mpg.setCfg(cfg);
+        injectionConfig.setFileOutConfigList(fileOutConfigList);
+        autoGenerator.setCfg(injectionConfig);
 
         // 配置模板
         TemplateConfig templateConfig = new TemplateConfig();
@@ -96,26 +102,28 @@ public class CodeGenService {
         templateConfig.setServiceImpl(getTemplateBasepath() + "serviceImpl.java");
         templateConfig.setXml(null);
 
-        mpg.setTemplate(templateConfig);
+        autoGenerator.setTemplate(templateConfig);
 
         // 策略配置
-        StrategyConfig strategy = new StrategyConfig();
-        strategy.setNaming(NamingStrategy.underline_to_camel);
-        strategy.setColumnNaming(NamingStrategy.underline_to_camel);
-        strategy.setEntityLombokModel(true);
-        strategy.setRestControllerStyle(true);
+        StrategyConfig strategyConfig = new StrategyConfig();
+        strategyConfig.setNaming(NamingStrategy.underline_to_camel);
+        strategyConfig.setColumnNaming(NamingStrategy.underline_to_camel);
+        strategyConfig.setEntityLombokModel(true);
+        strategyConfig.setRestControllerStyle(true);
         if (includeTableNames != null) {
-            strategy.setInclude(includeTableNames.split(","));
+            strategyConfig.setInclude(includeTableNames.split(","));
         }
-        strategy.setControllerMappingHyphenStyle(true);
-        strategy.setTablePrefix(packageConfig.getModuleName() + "_");
-        mpg.setStrategy(strategy);
-        mpg.setTemplateEngine(new FreemarkerTemplateEngine());
-        mpg.execute();
+        strategyConfig.setControllerMappingHyphenStyle(true);
+        strategyConfig.setTablePrefix(packageConfig.getModuleName() + "_");
+
+        autoGenerator.setStrategy(strategyConfig);
+        autoGenerator.setTemplateEngine(new FreemarkerTemplateEngine());
+        autoGenerator.execute();
     }
 
     private String getTemplateBasepath(){
-        return "/template/";
+//        return "/template/";
+        return templatePath;
     }
 
 }

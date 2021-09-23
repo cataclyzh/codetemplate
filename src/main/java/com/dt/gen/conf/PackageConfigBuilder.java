@@ -20,10 +20,11 @@ public interface PackageConfigBuilder {
 
     /**
      * 处理 table name 的获取
+     *
      * @param filePath
      * @return
      */
-    default String getTableNameStrFromFile(String filePath){
+    default String getTableNameStrFromFile(String filePath) {
         try {
             List<String> lineList = FileUtils.readLines(new File(filePath), "UTF-8");
             String s = StringUtils.join(lineList, ",");
@@ -31,5 +32,17 @@ public interface PackageConfigBuilder {
         } catch (IOException e) {
             throw new RuntimeException("读取文件出错", e);
         }
+    }
+
+    default PackageConfig getPackageConfig(String modelName, String companyName) {
+        PackageConfig pc = new PackageConfig();
+        pc.setParent("com." + companyName);
+        pc.setEntity("dao.entity");
+        pc.setService("service");
+        pc.setServiceImpl("service.impl");
+        pc.setController("controller");
+        pc.setMapper("dao.mapper");
+        pc.setModuleName(modelName);
+        return pc;
     }
 }

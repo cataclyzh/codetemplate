@@ -19,20 +19,13 @@ public class ZjscreemPackageConfigBuilder implements PackageConfigBuilder{
 
     @Override
     public PackageConfig buildPackageConfig(){
-        PackageConfig pc = new PackageConfig();
-        pc.setParent("com.zj");
-        pc.setEntity("entity");
-        pc.setService("service");
-        pc.setServiceImpl("service.impl");
-        pc.setModuleName("screem");
-//        pc.setModuleName("demo1");
-        return pc;
+        return getPackageConfig("screem", "zj");
     }
 
     @Override
     public DataSourceConfig buildDataSourceConfig(){
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://rm-bp10e72u12e9443m6mo.mysql.rds.aliyuncs.com:3306/zj_screem?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai");
+        dsc.setUrl("jdbc:mysql://218.94.144.162:3306/zj_screem?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("mysqladmin");
         dsc.setPassword("DtDream@0209");

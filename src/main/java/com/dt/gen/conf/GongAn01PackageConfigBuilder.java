@@ -13,25 +13,17 @@ public class GongAn01PackageConfigBuilder implements PackageConfigBuilder{
 
     @Override
     public PackageConfig buildPackageConfig() {
-        PackageConfig pc = new PackageConfig();
-        pc.setParent("com.dt");
-        pc.setEntity("dao.entity");
-        pc.setService("dao.service");
-        pc.setServiceImpl("dao.service.impl");
-        pc.setController("dao.controller");
-        pc.setMapper("dao.mapper");
-        pc.setModuleName("gongan");
-        return pc;
+        return getPackageConfig("gongan", "dt");
     }
 
     @Override
     public DataSourceConfig buildDataSourceConfig() {
         //dm_process
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://36.137.53.40:3306/gongan01?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai");
+        dsc.setUrl("jdbc:mysql://218.94.144.162:3306/gongan01?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
-        dsc.setPassword("DtDream0209");
+        dsc.setPassword("mysql123");
         return dsc;
     }
 }

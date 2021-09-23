@@ -31,6 +31,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
+import com.dt.gongan.model.dto.rest.LoginUserRestVo;
+import com.dt.gongan.manager.DatabaseManager;
 
 /**
  * <p>
@@ -59,9 +61,13 @@ public class ${table.controllerName} {
     @Autowired
     private ${table.serviceName} ${'${table.serviceName}'?uncap_first};
 
+    @Autowired
+    private DatabaseManager databaseManager;
+
     @ApiOperation(value = "${table.comment!}分页查询", notes = "page")
     @PostMapping("/page")
-    public PageReplyResponse<List<${entity}>> page(@RequestBody PageRequest<${entity}> pageRequest,
+    public PageReplyResponse<List<${entity}>> page(
+            @RequestBody PageRequest<${entity}> pageRequest,
             @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
             HttpServletRequest request) {
@@ -70,14 +76,18 @@ public class ${table.controllerName} {
         LoginUserDto loginUserDto = MyHttpTools.convertLoginUserDto(userJson);
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", pageRequest, loginUserDto, sessionToken);
 
+        //接口获取完整的当前用户信息
+        LoginUserRestVo user = databaseManager.queryUserDetail(loginUserDto.getId());
+        log.info("user: {}", user);
+
         log.info("page request: {}", pageRequest);
 
         IPage<${entity}> page = new Page<>(pageRequest.getCurrentPage(),
                 pageRequest.getPageSize(), true);
         ${entity} ${'${entity}'?uncap_first} = pageRequest.getData();
-        IPage<${entity}> resultList = ${'${table.serviceName}'?uncap_first}.selectPage(page, ${'${entity}'?uncap_first});
+        IPage<${entity}> resultPage = ${'${table.serviceName}'?uncap_first}.selectPage(page, ${'${entity}'?uncap_first});
 
-        return PageReplyResponse.page(resultList);
+        return PageReplyResponse.page(resultPage);
     }
 
     @ApiOperation(value = "${table.comment!}列表查询", notes = "list")
@@ -92,6 +102,10 @@ public class ${table.controllerName} {
         LoginUserDto loginUserDto = MyHttpTools.convertLoginUserDto(userJson);
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
 
+        //接口获取完整的当前用户信息
+        LoginUserRestVo user = databaseManager.queryUserDetail(loginUserDto.getId());
+        log.info("user: {}", user);
+
         log.info("list request: {}", requestWrapper);
 
         ${entity} ${'${entity}'?uncap_first} = requestWrapper.getData();
@@ -103,7 +117,8 @@ public class ${table.controllerName} {
 
     @ApiOperation(value = "增加记录", notes = "insert")
     @PostMapping("/insert")
-    public ReplyResponse<${entity}> insert(@RequestBody RequestWrapper<${entity}> requestWrapper,
+    public ReplyResponse<String> insert(
+            @RequestBody RequestWrapper<${entity}> requestWrapper,
             @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
             HttpServletRequest request) {
@@ -111,6 +126,10 @@ public class ${table.controllerName} {
         //用户信息处理
         LoginUserDto loginUserDto = MyHttpTools.convertLoginUserDto(userJson);
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
+
+        //接口获取完整的当前用户信息
+        LoginUserRestVo user = databaseManager.queryUserDetail(loginUserDto.getId());
+        log.info("user: {}", user);
 
         log.info("insert request: {}", requestWrapper);
         ${'${table.serviceName}'?uncap_first}.insert(requestWrapper.getData());
@@ -119,7 +138,8 @@ public class ${table.controllerName} {
 
     @ApiOperation(value = "修改记录", notes = "update")
     @PostMapping("/update")
-    public ReplyResponse<${entity}> update(@RequestBody RequestWrapper<${entity}> requestWrapper,
+    public ReplyResponse<String> update(
+            @RequestBody RequestWrapper<${entity}> requestWrapper,
             @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
             HttpServletRequest request) {
@@ -127,6 +147,10 @@ public class ${table.controllerName} {
         //用户信息处理
         LoginUserDto loginUserDto = MyHttpTools.convertLoginUserDto(userJson);
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
+
+        //接口获取完整的当前用户信息
+        LoginUserRestVo user = databaseManager.queryUserDetail(loginUserDto.getId());
+        log.info("user: {}", user);
 
         log.info("update request: {}", requestWrapper);
         ${'${table.serviceName}'?uncap_first}.update(requestWrapper.getData());
@@ -135,7 +159,8 @@ public class ${table.controllerName} {
 
     @ApiOperation(value = "删除记录", notes = "delete")
     @PostMapping("/delete")
-    public ReplyResponse<${entity}> delete(@RequestBody RequestWrapper<Long> requestWrapper,
+    public ReplyResponse<String> delete(
+            @RequestBody RequestWrapper<Long> requestWrapper,
             @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
             HttpServletRequest request) {
@@ -144,21 +169,30 @@ public class ${table.controllerName} {
         LoginUserDto loginUserDto = MyHttpTools.convertLoginUserDto(userJson);
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
 
-        log.info("update request: {}", requestWrapper);
+        //接口获取完整的当前用户信息
+        LoginUserRestVo user = databaseManager.queryUserDetail(loginUserDto.getId());
+        log.info("user: {}", user);
+
+        log.info("delete request: {}", requestWrapper);
         ${'${table.serviceName}'?uncap_first}.removeById(requestWrapper.getData());
         return ReplyResponse.ok();
     }
 
     @ApiOperation(value = "明细记录", notes = "detail")
     @PostMapping("/detail")
-    public ReplyResponse<${entity}> detail(@RequestBody RequestWrapper<Long> requestWrapper,
-        @RequestHeader(value = "current-user") String userJson,
+    public ReplyResponse<${entity}> detail(
+            @RequestBody RequestWrapper<Long> requestWrapper,
+            @RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken,
             HttpServletRequest request) {
         MyHttpTools.printHeaderInfo(request);
         //用户信息处理
         LoginUserDto loginUserDto = MyHttpTools.convertLoginUserDto(userJson);
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
+
+        //接口获取完整的当前用户信息
+        LoginUserRestVo user = databaseManager.queryUserDetail(loginUserDto.getId());
+        log.info("user: {}", user);
 
         log.info("detail request: {}", requestWrapper);
         ${entity} result = ${'${table.serviceName}'?uncap_first}.getById(requestWrapper.getData());

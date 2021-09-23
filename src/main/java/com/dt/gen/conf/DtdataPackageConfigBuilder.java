@@ -13,24 +13,22 @@ public class DtdataPackageConfigBuilder implements PackageConfigBuilder {
 
     @Override
     public PackageConfig buildPackageConfig() {
-        PackageConfig pc = new PackageConfig();
-        pc.setParent("com.dt");
-        pc.setEntity("entity");
-        pc.setService("service");
-        pc.setServiceImpl("service.impl");
-        pc.setModuleName("dataquality");
-//        pc.setModuleName("demo1");
-        return pc;
+        return getPackageConfig("dtdata", "dt");
     }
 
     @Override
     public DataSourceConfig buildDataSourceConfig() {
         //dm_process
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://rm-bp10e72u12e9443m6mo.mysql.rds.aliyuncs.com:3306/db_quality?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai");
+        dsc.setUrl("jdbc:mysql://218.94.144.162:3306/db_quality?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai");
         dsc.setDriverName("com.mysql.jdbc.Driver");
-        dsc.setUsername("mysqladmin");
-        dsc.setPassword("DtDream@0209");
+        dsc.setUsername("root");
+        dsc.setPassword("mysql123");
+
+//        dsc.setUrl("jdbc:mysql://172.27.160.3:3306/db_quality?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai");
+//        dsc.setDriverName("com.mysql.jdbc.Driver");
+//        dsc.setUsername("root");
+//        dsc.setPassword("DtDream@0209");
         return dsc;
     }
 }
