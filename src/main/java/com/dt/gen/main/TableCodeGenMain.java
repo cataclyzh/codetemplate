@@ -1,11 +1,7 @@
 package com.dt.gen.main;
 
 import com.dt.gen.conf.DtdataPackageConfigBuilder;
-import com.dt.gen.conf.GaSysPackageConfigBuilder;
-import com.dt.gen.conf.GongAn01PackageConfigBuilder;
-import com.dt.gen.conf.NewDtdataPackageConfigBuilder;
 import com.dt.gen.conf.PackageConfigBuilder;
-import com.dt.gen.conf.ZjscreemPackageConfigBuilder;
 import com.dt.gen.service.CodeGenService;
 import lombok.extern.slf4j.Slf4j;
 

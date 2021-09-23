@@ -8,6 +8,7 @@ import java.util.List;
 public class Schema {
 
 	private String projectName;		//	生成项目名
+	private String databaseName;		//	生成项目名
 	private String packageName;		// 生成包路径
 
 	private String UIModuleName;		// ui的模块名，应该和类名相同，待处理
@@ -22,7 +23,13 @@ public class Schema {
 
 	private Boolean replaceFile;	// 是否替换现有文件    0：不替换；1：替换文件
 
+	public String getDatabaseName() {
+		return databaseName;
+	}
 
+	public void setDatabaseName(String databaseName) {
+		this.databaseName = databaseName;
+	}
 
 	public String getApiPath() {
 		return apiPath;

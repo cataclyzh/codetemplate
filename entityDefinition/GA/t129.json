@@ -1,8 +1,6 @@
 {
-  "projectName": "systemservice",
-  "packageName": "com.dtdream.ecd.sys",
-  "apiPath": "sys",
-  "uiModuleName": "",
+  "projectName": "gongan01",
+  "databaseName": "gongan01",
   "functionName": "数据核查令",
   "functionNameSimple": "",
   "functionAuthor": "MoWei",

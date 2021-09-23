@@ -1,11 +1,15 @@
 package com.dtdream.ecd.codeGen;
 
+import com.dt.gen.conf.DtdataPackageConfigBuilder;
+import com.dt.gen.conf.PackageConfigBuilder;
+import com.dt.gen.service.CodeGenService;
+import com.dtdream.ecd.codeGen.config.DataSourceConfigBuilder;
 import com.dtdream.ecd.codeGen.entity.Template;
 import com.dtdream.ecd.codeGen.entity.gen.Schema;
 import com.dtdream.ecd.codeGen.entity.gen.Table;
 import com.dtdream.ecd.codeGen.entity.gen.TableColumn;
 import com.dtdream.ecd.codeGen.mapper.JsonMapper;
-import com.dtdream.ecd.codeGen.util.GenUtils;
+import com.dtdream.ecd.codeGen.utils.GenUtils;
 import com.dtdream.ecd.codeGen.utils.FileUtils;
 import com.dtdream.ecd.codeGen.utils.JDBCTemplateUtils;
 import com.dtdream.ecd.codeGen.utils.StringUtils;
@@ -28,65 +32,30 @@ public class CodeGenerator {
 
 	private static final String definitionDir ="/"+
 			SystemPath.getSysPath()+"../../entityDefinition/";
-	private static final String definitionFile ="/"+
-			SystemPath.getSysPath()+"../../entityDefinition/" +
-					"Tag.json";
-	private static final String parentDefinitionFile ="/"+
-			SystemPath.getSysPath()+"../../entityDefinition/" +
-			"TagCatalog.json";
 	private static final String templateFilePath ="/"+
-			SystemPath.getSysPath()+"../../templates/newcrud";
+			SystemPath.getSysPath()+"template/crud";
 	private static final String treeTemplateFilePath ="/"+
 			SystemPath.getSysPath()+"../../templates/tree";
 	public static void main(String[] args) throws IOException {
-//		generateCode(definitionFile,"tree");
-//		generateCode(definitionFile,"crud");
-//		generateCode(generateDefinitionFilePath("TagCatalog.json"),"tree");
-//		generateCode(generateDefinitionFilePath("SYS/HotWire.json"),"crud");
-		generateCode(generateDefinitionFilePath("GA/t129.json"),"crud");
-//		generateCode(generateDefinitionFilePath("ParamString.json"),"crud");
-//		generateRelateCode(definitionFile,parentDefinitionFile,"crud","tree");
-//		generateRelateCode(generateDefinitionFilePath("GA/HotWire.json"),generateDefinitionFilePath("SYS/Organization.json"),"","");
+		String dirPath=generateDefinitionFilePath("GA");
+		File dir=new File(dirPath);
+		if (dir.exists()){
+			for (File file : dir.listFiles()) {
+				if(file.getAbsolutePath().toLowerCase().endsWith("json")){
+					generateCode(file.getAbsolutePath(),"crud");
+				}
+			}
+		}
 	}
 
 
 	public static List<Table> tableList= Lists.newArrayList();
 
+
 	private static String generateDefinitionFilePath(String fileName){
 		String result=definitionDir+fileName;
 		System.out.println(result);
 		return result;
-	}
-
-	private static String generateRelateCode(String path,String parentPath,String type,String parentType) throws IOException {
-
-		String templatePath=templateFilePath;
-		if(type.equalsIgnoreCase("tree")){
-			templatePath=treeTemplateFilePath;
-		}
-		StringBuilder result = new StringBuilder();
-		String content= FileUtils.readFileToString(new File(path),"utf-8");
-		Schema genScheme=JsonMapper.getInstance().fromJson(content,Schema.class);
-		String parentContent= FileUtils.readFileToString(new File(parentPath),"utf-8");
-		Schema parentSchema=JsonMapper.getInstance().fromJson(parentContent,Schema.class);
-		genScheme.getTable().setParent(parentSchema.getTable());
-		//生成构建Freeker的模型
-		Map<String, Object> model = GenUtils.getDataModel(genScheme);
-
-		//生成代码
-		generateCode(templatePath,result, model, "/sql");
-		generateCode(templatePath,result, model, "/entity");
-		generateCode(templatePath,result, model, "/entityExample");
-		generateCode(templatePath,result, model, "/dao");
-		generateCode(templatePath,result, model, "/mapper");
-		generateCode(templatePath,result, model, "/service");
-		generateCode(templatePath,result, model, "/controller");
-		generateCode(templatePath,result, model, "/entityVO");
-		generateCode(templatePath,result, model, "/controllerTest");
-		generateCode(templatePath,result, model, "/vue/api_js");
-		generateCode(templatePath,result, model, "/vue/index");
-		generateCode(templatePath,result, model, "/vue/view");
-		return result.toString();
 	}
 
 	private static String generateCode(String path,String type) throws IOException {
@@ -120,14 +89,28 @@ public class CodeGenerator {
 		}
 		//生成构建Freeker的模型
 		Map<String, Object> model = GenUtils.getDataModel(genScheme);
-
 		//生成代码
 		generateCode(templatePath,result, model, "/sql_plugin");
-//		JdbcTemplate jdbcTemplate= JDBCTemplateUtils.genJdbcTemplate();
-		generateCode(templatePath,result, model, "/gavue/list");
-		generateCode(templatePath,result, model, "/gavue/page");
-		generateCode(templatePath,result, model, "/gavue/detail");
+		String sqlFile=result.toString();
+		JdbcTemplate jdbcTemplate= JDBCTemplateUtils.genJdbcTemplate(genScheme.getDatabaseName());
+		String sql=FileUtils.readFileToString(new File(sqlFile));
+		for (String s : sql.split(";")) {
+			if(StringUtils.isNotEmpty(s.trim())) {
+				jdbcTemplate.update(s.trim());
+			}
+		}
+		DataSourceConfigBuilder builder = new DataSourceConfigBuilder(genScheme.getDatabaseName());
+		String tableName="t"+genScheme.getTable().getNumber()+"_"+genScheme.getTable().getName();
+		new CodeGenService("/template/").execute(
+				builder.buildPackageConfig(),
+				builder.buildDataSourceConfig(),
+				tableName);
 
+		if(genScheme.getTable().getIsUserView() ||  genScheme.getTable().getIsOrgView() || genScheme.getTable().getIsTableJoinView()) {
+			String viewName = "v" + genScheme.getTable().getNumber() + "_" + genScheme.getTable().getName();
+
+			new CodeGenService("/template_v/").execute(builder.buildPackageConfig(), builder.buildDataSourceConfig(), viewName);
+		}
 		return result.toString();
 	}
 

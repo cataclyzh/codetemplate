@@ -11,15 +11,17 @@ public class JDBCTemplateUtils {
 
     private static Map<Long,JdbcTemplate> templateMap=new HashMap<>();
 
-    public static JdbcTemplate genJdbcTemplate(Database database){
+    static PropertiesLoader propertiesLoader=new PropertiesLoader("application.properties");
+    public static JdbcTemplate genJdbcTemplate(String dbName){
         DruidDataSource dataSource = new DruidDataSource();
         //设置相应的参数
         //1、数据库驱动类
-        dataSource.setDriverClassName(database.getDriverClassName());
+        dataSource.setDriverClassName(propertiesLoader.getProperty("database.driverClassName"));
         //2、url，用户名，密码
-        dataSource.setUrl(getConnectionInfo(database));
-        dataSource.setUsername(database.getUserName());
-        dataSource.setPassword(database.getUserPwd());
+        String url=propertiesLoader.getProperty("database.url");
+        dataSource.setUrl(String.format(url, dbName));
+        dataSource.setUsername(propertiesLoader.getProperty("database.username"));
+        dataSource.setPassword(propertiesLoader.getProperty("database.password"));
         //3、初始化连接大小
         dataSource.setInitialSize(1);
         //4、连接池最大数据量

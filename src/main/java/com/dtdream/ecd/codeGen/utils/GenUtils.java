@@ -1,9 +1,8 @@
-package com.dtdream.ecd.codeGen.util;
+package com.dtdream.ecd.codeGen.utils;
 
 import com.dtdream.ecd.codeGen.entity.Template;
 import com.dtdream.ecd.codeGen.entity.gen.Schema;
 import com.dtdream.ecd.codeGen.mapper.JaxbMapper;
-import com.dtdream.ecd.codeGen.utils.*;
 import com.google.common.collect.Maps;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -113,7 +112,7 @@ public class GenUtils {
 		// 获取生成文件
 		String fileName = SystemPath.getSysPath()+"../../"+File.separator
 				+ StringUtils.replaceEach(FreeMarkers.renderString(template.getFilePath() + "/", model),
-						new String[]{"//", "/", "."}, new String[]{File.separator, File.separator, File.separator})
+				new String[]{"//", "/", "."}, new String[]{File.separator, File.separator, File.separator})
 				+ FreeMarkers.renderString(template.getFileName(), model);
 		System.out.println(fileName);
 		logger.debug(" fileName === " + fileName);
@@ -131,10 +130,10 @@ public class GenUtils {
 		if (FileUtils.createFile(fileName)){
 			FileUtils.writeToFile(fileName, content, true);
 			logger.debug(" file create === " + fileName);
-			return "生成成功："+fileName+"<br/>";
+			return fileName;
 		}else{
 			logger.debug(" file extents === " + fileName);
-			return "文件已存在："+fileName+"<br/>";
+			return fileName;
 		}
 	}
 	

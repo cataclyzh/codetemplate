@@ -2,11 +2,9 @@
 <template>
 	<name>sql</name>
 	<filePath>genResult/sql</filePath>
-	<fileName>${ClassName}_plugin.sql</fileName>
+	<fileName>${ClassName}.sql</fileName>
 	<content><![CDATA[
-/**
- * Copyright &copy; 2018-2019 DtDream ECD. All rights reserved.
- */
+
 DROP TABLE IF EXISTS `t${table.number}_${table.name}`;
 
 CREATE TABLE `t${table.number}_${table.name}` (
@@ -20,9 +18,8 @@ CREATE TABLE `t${table.number}_${table.name}` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=116 DEFAULT CHARSET=utf8 COMMENT='${table.comments}';
 
-<#if table.isUserView ||  table.isOrgView || table.isJoinView>
-DROP VIEW IF EXISTS `v${table.number}_${table.name}`;
-create VIEW `v${table.number}_${table.name}` AS
+<#if table.isUserView ||  table.isOrgView || table.isTableJoinView>
+create or replace VIEW `v${table.number}_${table.name}` AS
 select
   `t${table.number}_${table.name}`.`id` AS `id`,
   <#list table.columnList as c>
@@ -63,7 +60,7 @@ from `t${table.number}_${table.name}`
   <#else>
   </#if>
   </#list>
-where (`t${table.number}_${table.name}`.`del_flag` = 0)
+where (`t${table.number}_${table.name}`.`del_flag` = 0);
 </#if>
 
 

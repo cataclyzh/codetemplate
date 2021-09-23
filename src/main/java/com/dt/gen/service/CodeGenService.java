@@ -40,7 +40,7 @@ public class CodeGenService {
         GlobalConfig globalConfig = new GlobalConfig();
         globalConfig.setSwagger2(true);
 
-        String outputBaseDir = projectPath + "/src/main/java1/";
+        String outputBaseDir = projectPath + "/genResult/java/";
         globalConfig.setOutputDir(outputBaseDir);
         globalConfig.setAuthor("铠甲");
         globalConfig.setOpen(false);

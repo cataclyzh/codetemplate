@@ -6,7 +6,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * 生成方案Entity
  */
-@XmlRootElement(name="template")
+@XmlRootElement(name= "template")
 public class Template {
 	
 	private static final long serialVersionUID = 1L;
