@@ -1,5 +1,5 @@
 {
-  "projectName": "gongan01",
+  "moduleName": "dtdata",
   "databaseName": "gongan01",
   "functionName": "数据核查令",
   "functionNameSimple": "",
@@ -68,6 +68,7 @@
         "name": "sjhc_status",
         "comments": "当前状态：待补充,已推送",
         "jdbcType": "varchar(100)",
+        "dictType":"",
         "isPk": "0",
         "isNull": "0"
       },
