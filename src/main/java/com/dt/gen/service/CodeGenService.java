@@ -16,6 +16,7 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /***
  * @author 古米
@@ -67,6 +68,21 @@ public class CodeGenService {
             @Override
             public void initMap() {
                 // to do nothing
+            }
+
+            @Override
+            public void initTableMap(TableInfo tableInfo) {
+                // 子类重写注入表对应补充信息
+
+//                tableInfo.set
+            }
+
+            @Override
+            public Map<String, Object> prepareObjectMap(Map<String, Object> objectMap) {
+
+                objectMap.put("table1", "AAA");
+
+                return objectMap;
             }
         };
 
