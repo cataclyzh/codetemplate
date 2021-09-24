@@ -86,7 +86,8 @@ public class ${table.controllerName} {
                 pageRequest.getPageSize(), true);
         ${entity} ${'${entity}'?uncap_first} = pageRequest.getData();
         IPage<${entity}> resultPage = ${'${table.serviceName}'?uncap_first}.selectPage(page, ${'${entity}'?uncap_first});
-
+        List<${model}> resultModels=${'${table.serviceName}'?uncap_first}.converterToVO(resultPage.getRecords());
+        resultPage.setRecords(resultModels);
         return PageReplyResponse.page(resultPage);
     }
 

@@ -99,7 +99,7 @@ public class CodeGenerator {
 				jdbcTemplate.update(s.trim());
 			}
 		}
-		DataSourceConfigBuilder builder = new DataSourceConfigBuilder(genScheme.getDatabaseName());
+		DataSourceConfigBuilder builder = new DataSourceConfigBuilder(genScheme.getDatabaseName(),genScheme.getModuleName());
 		String tableName="t"+genScheme.getTable().getNumber()+"_"+genScheme.getTable().getName();
 		new CodeGenService("/template/").execute(
 				builder.buildPackageConfig(),
@@ -110,6 +110,8 @@ public class CodeGenerator {
 			String viewName = "v" + genScheme.getTable().getNumber() + "_" + genScheme.getTable().getName();
 			new CodeGenService("/template_v/").execute(builder.buildPackageConfig(), builder.buildDataSourceConfig(), viewName);
 		}
+		generateCode(templatePath,result, model, "/model");
+		generateCode(templatePath,result, model, "/modelConverter");
 		return result.toString();
 	}
 

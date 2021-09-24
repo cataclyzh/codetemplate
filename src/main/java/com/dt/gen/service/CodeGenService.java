@@ -1,6 +1,7 @@
 package com.dt.gen.service;
 
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.InjectionConfig;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
@@ -79,9 +80,8 @@ public class CodeGenService {
 
             @Override
             public Map<String, Object> prepareObjectMap(Map<String, Object> objectMap) {
-
-                objectMap.put("table1", "AAA");
-
+                String entityName= StringUtils.underlineToCamel(includeTableNames);
+                objectMap.put("model", entityName+"Model");
                 return objectMap;
             }
         };

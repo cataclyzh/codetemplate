@@ -93,7 +93,7 @@ public class GenUtils {
 		model.put("functionVersion", DateUtils.getDate());
 		model.put("table", genScheme.getTable());
 
-//		model.put("moduleName", StringUtils.lowerCase(genScheme.getModuleName()));
+		model.put("moduleName", StringUtils.lowerCase(genScheme.getModuleName()));
 //		model.put("subModuleName", genScheme.getSubModuleName());
 //		model.put("simpleModuleName", genScheme.getSimpleModuleName());
 //		model.put("SIMPLEMODULENAME",StringUtils.upperCase(genScheme.getSimpleModuleName()));

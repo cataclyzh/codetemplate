@@ -1,5 +1,5 @@
 {
-  "moduleName": "dtdata",
+  "moduleName": "gongan",
   "databaseName": "gongan01",
   "functionName": "数据核查令",
   "functionNameSimple": "",
@@ -68,7 +68,7 @@
         "name": "sjhc_status",
         "comments": "当前状态：待补充,已推送",
         "jdbcType": "varchar(100)",
-        "dictType":"",
+        "dictType":"zyfw_sjhc_status",
         "isPk": "0",
         "isNull": "0"
       },
@@ -92,6 +92,7 @@
         "name": "sjhc_requirement",
         "comments": "紧急程度",
         "jdbcType": "varchar(100)",
+        "dictType":"zyfw_sjhc_requirement",
         "isPk": "0",
         "isNull": "0"
       },
@@ -106,6 +107,7 @@
         "name": "sjhc_type",
         "comments": "类型",
         "jdbcType": "varchar(500)",
+        "dictType":"zyfw_sjhc_type",
         "isPk": "0",
         "isNull": "0"
       },

@@ -14,13 +14,15 @@ import lombok.extern.slf4j.Slf4j;
 public class DataSourceConfigBuilder implements PackageConfigBuilder {
     PropertiesLoader propertiesLoader=new PropertiesLoader("application.properties");
     String dbName="gongan01";
-    public DataSourceConfigBuilder(String dbName){
+    String moduleName;
+    public DataSourceConfigBuilder(String dbName,String moduleName){
         this.dbName=dbName;
+        this.moduleName=moduleName;
     }
 
     @Override
     public PackageConfig buildPackageConfig() {
-        return getPackageConfig("dtdata", "dt");
+        return getPackageConfig(moduleName, "dt");
     }
 
     @Override

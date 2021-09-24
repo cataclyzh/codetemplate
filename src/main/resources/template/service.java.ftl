@@ -26,4 +26,5 @@ public interface ${table.serviceName} extends ${superServiceClass}<${entity}> {
 
     void addTestData();
 
+    public ${model} converterToVO(${entity} ${entity?uncap_first});
 }

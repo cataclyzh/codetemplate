@@ -11,7 +11,7 @@ public class Schema {
 	private String databaseName;		//	生成项目名
 	private String packageName;		// 生成包路径
 
-	private String moduleName;		// ui的模块名，应该和类名相同，待处理
+	private String moduleName="";		// ui的模块名，应该和类名相同，待处理
 
 
 	private String UIModuleName;		// ui的模块名，应该和类名相同，待处理
@@ -129,31 +129,6 @@ public class Schema {
 		this.tables = tables;
 	}
 
-	//	private String moduleName;		// 生成模块名
-//	private String simpleModuleName;		// 生成模块名
-//	private String subModuleName;		// 生成子模块名
-//	public String getSimpleModuleName() {
-//		return simpleModuleName;
-//	}
-//
-//	public void setSimpleModuleName(String simpleModuleName) {
-//		this.simpleModuleName = simpleModuleName;
-//	}
-//	public String getModuleName() {
-//		return moduleName;
-//	}
-//
-//	public void setModuleName(String moduleName) {
-//		this.moduleName = moduleName;
-//	}
-//
-//	public String getSubModuleName() {
-//		return subModuleName;
-//	}
-//
-//	public void setSubModuleName(String subModuleName) {
-//		this.subModuleName = subModuleName;
-//	}
 }
 
 
