@@ -98,6 +98,9 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
     }
 
     private void addOneTestData(int i) {
+
+        ${'${table1}'}
+
         ${entity} o = new ${entity}();
 
         <#list table.fields as field>
