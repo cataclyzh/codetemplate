@@ -108,7 +108,6 @@ public class CodeGenerator {
 
 		if(genScheme.getTable().getIsUserView() ||  genScheme.getTable().getIsOrgView() || genScheme.getTable().getIsTableJoinView()) {
 			String viewName = "v" + genScheme.getTable().getNumber() + "_" + genScheme.getTable().getName();
-
 			new CodeGenService("/template_v/").execute(builder.buildPackageConfig(), builder.buildDataSourceConfig(), viewName);
 		}
 		return result.toString();

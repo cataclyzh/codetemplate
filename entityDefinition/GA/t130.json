@@ -1,5 +1,5 @@
 {
-  "projectName": "systemservice",
+  "moduleName": "dtdata",
   "databaseName": "gongan01",
   "functionName": "数据核查令",
   "functionNameSimple": "",

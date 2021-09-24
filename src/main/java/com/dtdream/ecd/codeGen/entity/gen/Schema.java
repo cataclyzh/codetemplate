@@ -11,6 +11,9 @@ public class Schema {
 	private String databaseName;		//	生成项目名
 	private String packageName;		// 生成包路径
 
+	private String moduleName;		// ui的模块名，应该和类名相同，待处理
+
+
 	private String UIModuleName;		// ui的模块名，应该和类名相同，待处理
 	private String functionName;		// 生成功能名，模型基本名称
 	private String functionNameSimple;		// 生成功能名（简写），用于部分页面提示信息，默认是functionName
@@ -48,6 +51,13 @@ public class Schema {
 	}
 
 
+	public String getModuleName() {
+		return moduleName;
+	}
+
+	public void setModuleName(String moduleName) {
+		this.moduleName = moduleName;
+	}
 	public String getPackageName() {
 		return packageName;
 	}
