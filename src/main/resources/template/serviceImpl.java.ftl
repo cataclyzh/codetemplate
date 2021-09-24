@@ -12,6 +12,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import java.util.List;
 import com.dt.core.tools.MyDateUtil;
 import com.dt.gongan.manager.SystemManager;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * <p>
@@ -123,28 +124,5 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
 
         </#list>
         insert(o);
-    }
-
-    public ${model} converterToVO(${entity} ${entity?uncap_first}){
-        ${model} result= JsonMapper.fromJsonString(${entity?uncap_first},${model}.class);
-        Map<String,Map<String,String>> dictMap=systemManager.getAllDictsMap();
-        <#list table.fields as c>
-        <#if c.dictType?? && c.dictType != "">
-        if(dictMap.get("${c.dictType}")!=null){
-            result.set${c.simpleJavaField?cap_first}Dict(dictMap.get("${c.dictType}").get(${className}.get${c.simpleJavaField?cap_first}()));
-        }else{
-            result.set${c.simpleJavaField?cap_first}Dict("");
-        }
-        </#if>
-        </#list>
-        return result;
-    }
-
-    public List<${model}> converterToVO(List<${entity}> ${entity?uncap_first}s){
-        List<${model}> result= Lists.newArrayList();
-        for(${entity} ${entity?uncap_first}:${entity?uncap_first}s){
-            result.add(converterToVO(${entity?uncap_first}));
-        }
-        return result;
     }
 }

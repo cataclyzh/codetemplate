@@ -70,7 +70,7 @@ public class Table  {
 	}
 
 	public String getName() {
-		return StringUtils.lowerCase(name);
+		return StringUtils.toCamelCase(name).toLowerCase();
 	}
 
 	public void setName(String name) {

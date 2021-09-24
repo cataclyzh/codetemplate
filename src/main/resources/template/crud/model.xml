@@ -10,7 +10,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
-import com.dt.${moduleName}.dao.entity.T${table.number}${table.name?uncap_first}Entity;
+import com.dt.${moduleName}.dao.entity.T${table.number}${table.name?cap_first}Entity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -30,14 +30,14 @@ import java.io.Serializable;
 @EqualsAndHashCode(callSuper = false)
 @TableName("t${table.number}_${table.name}")
 @ApiModel(value = "${table.comments}对象", description = "${table.comments}")
-public class T${table.number}${table.name?uncap_first}Model extends T${table.number}${table.name?uncap_first}Entity {
+public class T${table.number}${table.name?cap_first}Model extends T${table.number}${table.name?cap_first}Entity {
 <#list table.columnList as c>
   <#if c.dictType?? && c.dictType != "">
   	@ApiModelProperty(value = "${c.comments}字典值")
 	private  String ${c.simpleJavaField}Dict;			<#if c.comments??>// ${c.comments}</#if>
   </#if>
   </#list>
-
+}
 ]]>
 	</content>
 </template>

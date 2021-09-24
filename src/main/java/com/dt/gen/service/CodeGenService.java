@@ -82,6 +82,7 @@ public class CodeGenService {
             public Map<String, Object> prepareObjectMap(Map<String, Object> objectMap) {
                 String entityName= StringUtils.underlineToCamel(includeTableNames);
                 objectMap.put("model", entityName+"Model");
+                objectMap.put("path", packageConfig.getParent());
                 return objectMap;
             }
         };

@@ -32,11 +32,18 @@ public class CodeGenerator {
 
 	private static final String definitionDir ="/"+
 			SystemPath.getSysPath()+"../../entityDefinition/";
+	private static final String targerDir ="/"+
+			SystemPath.getSysPath()+"../../genResult/";
 	private static final String templateFilePath ="/"+
 			SystemPath.getSysPath()+"template/crud";
 	private static final String treeTemplateFilePath ="/"+
 			SystemPath.getSysPath()+"../../templates/tree";
+
+
 	public static void main(String[] args) throws IOException {
+		FileUtils.deleteDirectory(targerDir);
+
+
 		String dirPath=generateDefinitionFilePath("GA");
 		File dir=new File(dirPath);
 		if (dir.exists()){

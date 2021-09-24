@@ -26,12 +26,11 @@ import com.dt.core.model.PageRequest;
 import com.dt.core.model.ReplyResponse;
 
 import com.dt.core.tools.MyHttpTools;
-import com.dt.gongan.model.session.LoginUserDto;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import com.dt.gongan.model.dto.rest.LoginUserRestVo;
+import com.dt.gongan.model.dto.rest.UserVo;
 import com.dt.gongan.manager.DatabaseManager;
 
 /**
@@ -73,11 +72,11 @@ public class ${table.controllerName} {
             HttpServletRequest request) {
         MyHttpTools.printHeaderInfo(request);
         //用户信息处理
-        LoginUserDto loginUserDto = MyHttpTools.convertLoginUserDto(userJson);
+        UserVo loginUserDto = MyHttpTools.convertUserVo(userJson);
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", pageRequest, loginUserDto, sessionToken);
 
         //接口获取完整的当前用户信息
-        LoginUserRestVo user = databaseManager.queryUserDetail(loginUserDto.getId());
+        UserVo user = databaseManager.queryUserDetail(loginUserDto.getId());
         log.info("user: {}", user);
 
         log.info("page request: {}", pageRequest);
@@ -99,11 +98,11 @@ public class ${table.controllerName} {
             HttpServletRequest request) {
         MyHttpTools.printHeaderInfo(request);
         //用户信息处理
-        LoginUserDto loginUserDto = MyHttpTools.convertLoginUserDto(userJson);
+        UserVo loginUserDto = MyHttpTools.convertUserVo(userJson);
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
 
         //接口获取完整的当前用户信息
-        LoginUserRestVo user = databaseManager.queryUserDetail(loginUserDto.getId());
+        UserVo user = databaseManager.queryUserDetail(loginUserDto.getId());
         log.info("user: {}", user);
 
         log.info("list request: {}", requestWrapper);
@@ -124,11 +123,11 @@ public class ${table.controllerName} {
             HttpServletRequest request) {
         MyHttpTools.printHeaderInfo(request);
         //用户信息处理
-        LoginUserDto loginUserDto = MyHttpTools.convertLoginUserDto(userJson);
+        UserVo loginUserDto = MyHttpTools.convertUserVo(userJson);
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
 
         //接口获取完整的当前用户信息
-        LoginUserRestVo user = databaseManager.queryUserDetail(loginUserDto.getId());
+        UserVo user = databaseManager.queryUserDetail(loginUserDto.getId());
         log.info("user: {}", user);
 
         log.info("detail request: {}", requestWrapper);
