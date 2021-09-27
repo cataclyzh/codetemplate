@@ -119,6 +119,9 @@ public class CodeGenerator {
 		}
 		generateCode(templatePath,result, model, "/model");
 		generateCode(templatePath,result, model, "/modelConverter");
+		generateCode(templatePath,result, model, "/vmodel");
+		generateCode(templatePath,result, model, "/vmodelConverter");
+		generateCode(templatePath,result, model, "/postman");
 		return result.toString();
 	}
 

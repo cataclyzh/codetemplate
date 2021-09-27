@@ -27,6 +27,7 @@ select
   `${c.userPrefix}_user`.`user_id`           AS `${c.userPrefix}_user_id`,
   `${c.userPrefix}_user`.`user_name`         AS `${c.userPrefix}_user_name`,
   `${c.userPrefix}_user`.`mobile`            AS `${c.userPrefix}_user_mobile`,
+  `${c.userPrefix}_user`.`work_no`            AS `${c.userPrefix}_user_work_no`,
   `${c.userPrefix}_user`.`org_id`            AS `${c.userPrefix}_org_id`,
   `${c.userPrefix}_user`.`org_name`          AS `${c.userPrefix}_org_name`,
   `${c.userPrefix}_user`.`org_type`          AS `${c.userPrefix}_org_type`,

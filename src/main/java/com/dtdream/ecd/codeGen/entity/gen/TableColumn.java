@@ -15,14 +15,14 @@ public class TableColumn {
 	private static final long serialVersionUID = 1L;
 	private String name; 		// 列名
 	private String comments;	// 描述
-	private String jdbcType;	// JDBC类型
-	private String javaType;	// JAVA类型
+	private String jdbcType="varchar(255)";	// JDBC类型
+	private String javaType="String";	// JAVA类型
 	private String javaField;	// JAVA字段名
-	private String isPk;		// 是否主键（1：主键）
-	private String isFk;		// 是否外键（1：1-1外键/n:1-n外键）
+	private String isPk="0";		// 是否主键（1：主键）
+	private String isFk="0";		// 是否外键（1：1-1外键/n:1-n外键）
 	private String foreign;		// 关联表定义
 	private Table foreignTable;		// 关联表定义
-	private String isNull;		// 是否可为空（1：可为空；0：不为空）
+	private String isNull="0";		// 是否可为空（1：可为空；0：不为空）
 	private String isInsert;	// 是否为插入字段（1：插入字段）
 	private String isEdit;		// 是否编辑字段（1：编辑字段）
 	private String isList;		// 是否列表字段（1：列表字段）

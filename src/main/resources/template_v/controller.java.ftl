@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import ${superControllerClassPackage};
 </#if>
 import ${package.Entity}.${entity};
+import ${path}.dao.model.${model?cap_first};
 import ${package.Service}.${table.serviceName};
 import java.util.List;
 import io.swagger.annotations.Api;
@@ -32,6 +33,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpServletRequest;
 import com.dt.gongan.model.dto.rest.UserVo;
 import com.dt.gongan.manager.DatabaseManager;
+import com.dt.gongan.dao.converter.${model?cap_first}Converter;
 
 /**
  * <p>
@@ -84,8 +86,9 @@ public class ${table.controllerName} {
         IPage<${entity}> page = new Page<>(pageRequest.getCurrentPage(),
                 pageRequest.getPageSize(), true);
         ${entity} ${'${entity}'?uncap_first} = pageRequest.getData();
-        IPage<${entity}> resultPage = ${'${table.serviceName}'?uncap_first}.selectPage(page, ${'${entity}'?uncap_first});
-
+        IPage resultPage = ${'${table.serviceName}'?uncap_first}.selectPage(page, ${'${entity}'?uncap_first});
+        List<${model?cap_first}> resultModels=${model?cap_first}Converter.converterToVO(resultPage.getRecords());
+        resultPage.setRecords(resultModels);
         return PageReplyResponse.page(resultPage);
     }
 
@@ -132,7 +135,8 @@ public class ${table.controllerName} {
 
         log.info("detail request: {}", requestWrapper);
         ${entity} result = ${'${table.serviceName}'?uncap_first}.getById(requestWrapper.getData());
-        return ReplyResponse.ok(result);
+        ${model?cap_first} resultModel=${model?cap_first}Converter.converterToVO(result);
+        return ReplyResponse.ok(resultModel);
     }
 
 }

@@ -197,7 +197,9 @@ public class ${table.controllerName} {
 
         log.info("detail request: {}", requestWrapper);
         ${entity} result = ${'${table.serviceName}'?uncap_first}.getById(requestWrapper.getData());
-        return ReplyResponse.ok(result);
+
+        ${model?cap_first} resultModel=${model?cap_first}Converter.converterToVO(result);
+        return ReplyResponse.ok(resultModel);
     }
 
 }
