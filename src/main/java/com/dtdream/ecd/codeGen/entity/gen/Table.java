@@ -14,6 +14,15 @@ public class Table  {
 	private String number; 											// 表名称
 	private String comments;										// 表描述
 	private String className;										// 实体类名称
+	private Boolean isTree;
+
+	public Boolean getTree() {
+		return isTree;
+	}
+
+	public void setTree(Boolean tree) {
+		isTree = tree;
+	}
 
 	private List<TableColumn> columnList = Lists.newArrayList();	// 列信息
 

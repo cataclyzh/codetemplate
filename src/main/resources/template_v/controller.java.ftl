@@ -31,7 +31,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
-import com.dt.gongan.model.dto.rest.UserVo;
+import com.dt.context.model.UserVo;
 import com.dt.gongan.manager.DatabaseManager;
 import com.dt.gongan.dao.converter.${model?cap_first}Converter;
 

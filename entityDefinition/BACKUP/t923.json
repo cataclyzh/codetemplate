@@ -1,0 +1,82 @@
+{
+  "projectName": "gongan01",
+  "moduleName": "gongan",
+  "databaseName": "gongan01",
+  "functionName": "数据核查令",
+  "functionNameSimple": "",
+  "functionAuthor": "MoWei",
+  "table": {
+    "number": "923",
+    "name": "sjhc",
+    "comments": "数据核查令",
+    "className": "sjhc",
+    "parentTable": "",
+    "parentTableFk": "",
+    "isTree": true,
+    "processType": "data_service_apply",
+    "columnList": [
+      {
+        "name": "service_no",
+        "comments": "服务单号"
+      },
+      {
+        "name": "push_user_id",
+        "comments": "推送人ID"
+      },
+      {
+        "name": "push_time",
+        "comments": "推送时间"
+      },
+      {
+        "name": "title",
+        "comments": "主题"
+      },
+      {
+        "name": "type",
+        "comments": "类型",
+        "dictType": "sjhc_push_type"
+      },
+      {
+        "name": "content",
+        "comments": "推送服务内容",
+        "uiControl":"textarea"
+      },
+      {
+        "name": "attachment_ids",
+        "comments": "附件ids",
+        "uiControl":"upload"
+      },
+      {
+        "name": "qh",
+        "comments": "期号"
+      },
+      {
+        "name": "ts_comment",
+        "comments": "推送意见",
+        "jdbcType": "varchar(2000)",
+        "uiControl":"textarea"
+      },
+      {
+        "name": "nf",
+        "comments": "年份"
+      },
+      {
+        "name": "xqzt",
+        "comments": "需求主题"
+      },
+      {
+        "name": "lxr",
+        "comments": "联系人"
+      },
+      {
+        "name": "lxr_mobile",
+        "comments": "联系人电话"
+      },
+      {
+        "name": "sjhc_requirement",
+        "comments": "紧急程度",
+        "dictType": "sjhc_requirement_type"
+      }
+    ]
+  }
+}
