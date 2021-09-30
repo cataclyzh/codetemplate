@@ -1,0 +1,56 @@
+{
+  "projectName": "gongan01",
+  "moduleName": "gongan",
+  "databaseName": "gongan01",
+  "functionName": "板块管理",
+  "functionNameSimple": "",
+  "functionAuthor": "MoWei",
+  "table": {
+    "number": "901",
+    "name": "bbs_board",
+    "comments": "板块管理",
+    "className": "BbsBoard",
+    "parentTable": "",
+    "parentTableFk": "",
+    "columnList": [
+      {
+        "name": "name",
+        "comments": "名称"
+      },
+      {
+        "name": "type",
+        "comments": "类型",
+        "dictType": "bbs_board_type"
+      },
+      {
+        "name": "introduction",
+        "comments": "板块介绍",
+        "jdbcType": "varchar(2000)",
+        "uiControl": "textarea"
+      },
+      {
+        "name": "owner_user_id",
+        "comments": "版主ID"
+      },
+      {
+        "name": "image_id",
+        "comments": "板块图片ID",
+        "uiControl":"upload"
+      },
+      {
+        "name": "use_flag",
+        "comments": "上下架标记",
+        "jdbcType": "boolean",
+        "javaType": "boolean"
+      },
+      {
+        "name": "creator_user_id",
+        "comments": "创建人id"
+      },
+      {
+        "name": "updater_user_id",
+        "comments": "更新人ID"
+      }
+    ]
+  }
+}

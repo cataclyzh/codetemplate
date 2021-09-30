@@ -29,7 +29,7 @@ public class TableColumn {
 	private String isQuery;		// 是否查询字段（1：查询字段）
 	private String queryType;	// 查询方式（等于、不等于、大于、小于、范围、左LIKE、右LIKE、左右LIKE）
 	private String dictType;	// 字典类型
-	private String uiControl;	// 字典类型
+	private String uiControl="input";	// 页面组件
 	private Integer sort;		// 排序（升序）
 
 	public TableColumn() {
@@ -37,6 +37,12 @@ public class TableColumn {
 	}
 
 	public String getUiControl() {
+		if(StringUtils.isEmpty(uiControl)){
+			uiControl="input";
+		}
+		if(StringUtils.isNotEmpty(dictType)){
+			uiControl="select";
+		}
 		return uiControl;
 	}
 

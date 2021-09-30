@@ -108,20 +108,30 @@ public class CodeGenerator {
 		}
 		DataSourceConfigBuilder builder = new DataSourceConfigBuilder(genScheme.getDatabaseName(),genScheme.getModuleName());
 		String tableName="t"+genScheme.getTable().getNumber()+"_"+genScheme.getTable().getName();
-		new CodeGenService("/template/").execute(
-				builder.buildPackageConfig(),
-				builder.buildDataSourceConfig(),
-				tableName);
-
+		if(genScheme.getTable().getTree()!=null&&genScheme.getTable().getTree()) {
+			new CodeGenService("/template/tree/").execute(builder.buildPackageConfig(), builder.buildDataSourceConfig(), tableName);
+		}else{
+			new CodeGenService("/template/").execute(builder.buildPackageConfig(), builder.buildDataSourceConfig(), tableName);
+		}
 		if(genScheme.getTable().getIsUserView() ||  genScheme.getTable().getIsOrgView() || genScheme.getTable().getIsTableJoinView()) {
 			String viewName = "v" + genScheme.getTable().getNumber() + "_" + genScheme.getTable().getName();
-			new CodeGenService("/template_v/").execute(builder.buildPackageConfig(), builder.buildDataSourceConfig(), viewName);
+			if(genScheme.getTable().getTree()!=null&&genScheme.getTable().getTree()) {
+				new CodeGenService("/template_v/tree/").execute(builder.buildPackageConfig(), builder.buildDataSourceConfig(), viewName);
+			}else{
+				new CodeGenService("/template_v/").execute(builder.buildPackageConfig(), builder.buildDataSourceConfig(), tableName);
+			}
 		}
 		generateCode(templatePath,result, model, "/model");
 		generateCode(templatePath,result, model, "/modelConverter");
-		generateCode(templatePath,result, model, "/vmodel");
-		generateCode(templatePath,result, model, "/vmodelConverter");
+		if(genScheme.getTable().getIsUserView() ||  genScheme.getTable().getIsOrgView() || genScheme.getTable().getIsTableJoinView()) {
+			generateCode(templatePath, result, model, "/vmodel");
+			generateCode(templatePath, result, model, "/vmodelConverter");
+		}
 		generateCode(templatePath,result, model, "/postman");
+		generateCode(templatePath,result, model, "/test");
+		if(genScheme.getTable().getTree()!=null&&genScheme.getTable().getTree()) {
+			generateCode(templatePath,result, model, "/sql_mapper");
+		}
 		return result.toString();
 	}
 

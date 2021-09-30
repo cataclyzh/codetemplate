@@ -117,6 +117,7 @@ public class CodeGenService {
         templateConfig.setEntity(getTemplateBasepath() + "entity.java");
         templateConfig.setService(getTemplateBasepath() + "service.java");
         templateConfig.setServiceImpl(getTemplateBasepath() + "serviceImpl.java");
+        templateConfig.setMapper(getTemplateBasepath() + "mapper.java");
         templateConfig.setXml(null);
 
         autoGenerator.setTemplate(templateConfig);

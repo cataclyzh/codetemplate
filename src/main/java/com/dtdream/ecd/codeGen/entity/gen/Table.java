@@ -20,7 +20,7 @@ public class Table  {
 		return isTree;
 	}
 
-	public void setTree(Boolean tree) {
+	public void setIsTree(Boolean tree) {
 		isTree = tree;
 	}
 
