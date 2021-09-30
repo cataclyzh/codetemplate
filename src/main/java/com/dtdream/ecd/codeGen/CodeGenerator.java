@@ -118,7 +118,7 @@ public class CodeGenerator {
 			if(genScheme.getTable().getTree()!=null&&genScheme.getTable().getTree()) {
 				new CodeGenService("/template_v/tree/").execute(builder.buildPackageConfig(), builder.buildDataSourceConfig(), viewName);
 			}else{
-				new CodeGenService("/template_v/").execute(builder.buildPackageConfig(), builder.buildDataSourceConfig(), tableName);
+				new CodeGenService("/template_v/").execute(builder.buildPackageConfig(), builder.buildDataSourceConfig(), viewName);
 			}
 		}
 		generateCode(templatePath,result, model, "/model");

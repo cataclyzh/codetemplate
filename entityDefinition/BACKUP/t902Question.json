@@ -1,0 +1,34 @@
+{
+  "projectName": "gongan01",
+  "moduleName": "gongan",
+  "databaseName": "gongan01",
+  "functionName": "问题管理",
+  "functionNameSimple": "",
+  "functionAuthor": "MoWei",
+  "table": {
+    "number": "902",
+    "name": "znkf_question",
+    "comments": "问题管理",
+    "className": "ZnkfQuestion",
+    "parentTable": "",
+    "parentTableFk": "",
+    "isTree": true,
+    "columnList": [
+      {
+        "name": "type",
+        "comments": "类型",
+        "dictType": "znkf_question_type"
+      },
+      {
+        "name": "content",
+        "comments": "内容",
+        "jdbcType": "varchar(2000)",
+        "uiControl": "textarea"
+      },
+      {
+        "name": "keyword",
+        "comments": "关键词"
+      }
+    ]
+  }
+}
