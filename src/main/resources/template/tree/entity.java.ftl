@@ -54,6 +54,8 @@ public class ${entity} implements Serializable {
 </#if>
 <#-- ----------  BEGIN 字段循环遍历  ---------->
 <#list table.fields as field>
+    <#if field.propertyName=='id'||field.propertyName=='parentId'||field.propertyName=='parentIds'||field.propertyName=='sort'>
+    <#else>
     <#if field.keyFlag>
         <#assign keyPropertyName="${field.propertyName}"/>
     </#if>
@@ -88,6 +90,7 @@ public class ${entity} implements Serializable {
     @TableField("${field.annotationColumnName}")
     </#if>
     private ${field.propertyType} ${field.propertyName};
+    </#if>
 </#list>
 <#------------  END 字段循环遍历  ---------->
 

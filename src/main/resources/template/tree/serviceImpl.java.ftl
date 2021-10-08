@@ -85,13 +85,21 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
         </#if>
         <#if field.keyFlag>
         <#elseif field.propertyType == 'String'>
+            <#if field.propertyName == 'parentIds'>
+        if(StringUtils.isNotBlank(${'${entity}'?uncap_first}.get${'${field.propertyName}'?cap_first}())){
+            queryWrapper.likeRight("${field.name}", ${'${entity}'?uncap_first}.get${'${field.propertyName}'?cap_first}());
+        }
+            <#else >
         if(StringUtils.isNotBlank(${'${entity}'?uncap_first}.get${'${field.propertyName}'?cap_first}())){
             queryWrapper.eq("${field.name}", ${'${entity}'?uncap_first}.get${'${field.propertyName}'?cap_first}());
         }
+            </#if>
         <#elseif field.name != "del_flag" && (field.propertyType == 'Integer' || field.propertyType == 'Long')>
+            <#if field.propertyName != 'sort'>
         if(${'${entity}'?uncap_first}.get${'${field.propertyName}'?cap_first}() != null){
             queryWrapper.eq("${field.name}", ${'${entity}'?uncap_first}.get${'${field.propertyName}'?cap_first}());
         }
+            </#if>
         </#if>
         </#list>
         queryWrapper.orderByDesc("update_time");
@@ -115,12 +123,16 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
             </#if>
             <#if field.keyFlag>
             <#elseif field.propertyName == 'createTime'>
+            <#elseif field.propertyName == 'parentId'>
+        o.setParentId(0l);
+            <#elseif field.propertyName == 'parentIds'>
+        o.setParentIds("0,");
             <#elseif field.propertyName == 'updateTime'>
             <#elseif field.propertyType == 'String' && field.name != "del_flag">
         o.set${'${field.propertyName}'?cap_first}("${field.propertyName}");
             <#elseif field.name != "del_flag" && (field.propertyType == 'Integer')>
         o.set${'${field.propertyName}'?cap_first}(111 + i);
-            <#elseif field.name != "del_flag" && (field.propertyType == 'Long')>
+            <#elseif field.name != "del_flag" &&field.name != "parent_id" && (field.propertyType == 'Long')>
         o.set${'${field.propertyName}'?cap_first}(222L + i);
             </#if>
 

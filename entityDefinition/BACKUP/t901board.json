@@ -12,6 +12,7 @@
     "className": "BbsBoard",
     "parentTable": "",
     "parentTableFk": "",
+    "parentTableFk": "",
     "columnList": [
       {
         "name": "name",
