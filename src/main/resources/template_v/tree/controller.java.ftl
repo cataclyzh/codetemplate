@@ -65,7 +65,7 @@ public class ${table.controllerName} {
     private DatabaseManager databaseManager;
 
     @ApiOperation(value="进行${table.comment!}树形结构", notes="进行${table.comment!}树形结构")
-    @RequestMapping(value = {"tree"})
+    @PostMapping(value = {"tree"})
     public ReplyResponse tree(@RequestHeader(value = "current-user") String userJson,
             @RequestHeader(value = "sessionToken") String sessionToken) {
         try {
