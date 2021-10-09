@@ -182,4 +182,19 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
         }
         return results;
     }
+
+    @Override
+    public boolean delete(${entity} entity) {
+        List<${entity}> children = findChildren(entity);
+        for (${entity} child:children){
+            removeById(child.getId());
+        }
+        return removeById(entity.getId());
+    }
+
+    public List<${entity}> findChildren(${entity} entity) {
+        List<${entity}> list = baseMapper.selectList(new QueryWrapper<>());
+        entity = TreeUtils.findChildren(entity, list);
+        return entity.getChildren();
+    }
 }

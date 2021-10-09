@@ -191,7 +191,9 @@ public class ${table.controllerName} {
         log.info("user: {}", user);
 
         log.info("delete request: {}", requestWrapper);
-        ${'${table.serviceName}'?uncap_first}.removeById(requestWrapper.getData());
+        ${entity} entity=new ${entity}();
+        entity.setId(requestWrapper.getData());
+        ${'${table.serviceName}'?uncap_first}.delete(entity);
         return ReplyResponse.ok();
     }
 

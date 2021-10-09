@@ -132,69 +132,6 @@ public class ${table.controllerName} {
         return ReplyResponse.ok(resultList);
     }
 
-    @ApiOperation(value = "增加记录", notes = "insert")
-    @PostMapping("/insert")
-    public ReplyResponse<String> insert(
-            @RequestBody RequestWrapper<${entity}> requestWrapper,
-            @RequestHeader(value = "current-user") String userJson,
-            @RequestHeader(value = "sessionToken") String sessionToken,
-            HttpServletRequest request) {
-        MyHttpTools.printHeaderInfo(request);
-        //用户信息处理
-        UserVo loginUserDto = MyHttpTools.convertUserVo(userJson);
-        log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
-
-        //接口获取完整的当前用户信息
-        UserVo user = databaseManager.queryUserDetail(loginUserDto.getId());
-        log.info("user: {}", user);
-
-        log.info("insert request: {}", requestWrapper);
-        ${'${table.serviceName}'?uncap_first}.insert(requestWrapper.getData());
-        return ReplyResponse.ok();
-    }
-
-    @ApiOperation(value = "修改记录", notes = "update")
-    @PostMapping("/update")
-    public ReplyResponse<String> update(
-            @RequestBody RequestWrapper<${entity}> requestWrapper,
-            @RequestHeader(value = "current-user") String userJson,
-            @RequestHeader(value = "sessionToken") String sessionToken,
-            HttpServletRequest request) {
-        MyHttpTools.printHeaderInfo(request);
-        //用户信息处理
-        UserVo loginUserDto = MyHttpTools.convertUserVo(userJson);
-        log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
-
-        //接口获取完整的当前用户信息
-        UserVo user = databaseManager.queryUserDetail(loginUserDto.getId());
-        log.info("user: {}", user);
-
-        log.info("update request: {}", requestWrapper);
-        ${'${table.serviceName}'?uncap_first}.update(requestWrapper.getData());
-        return ReplyResponse.ok();
-    }
-
-    @ApiOperation(value = "删除记录", notes = "delete")
-    @PostMapping("/delete")
-    public ReplyResponse<String> delete(
-            @RequestBody RequestWrapper<Long> requestWrapper,
-            @RequestHeader(value = "current-user") String userJson,
-            @RequestHeader(value = "sessionToken") String sessionToken,
-            HttpServletRequest request) {
-        MyHttpTools.printHeaderInfo(request);
-        //用户信息处理
-        UserVo loginUserDto = MyHttpTools.convertUserVo(userJson);
-        log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
-
-        //接口获取完整的当前用户信息
-        UserVo user = databaseManager.queryUserDetail(loginUserDto.getId());
-        log.info("user: {}", user);
-
-        log.info("delete request: {}", requestWrapper);
-        ${'${table.serviceName}'?uncap_first}.removeById(requestWrapper.getData());
-        return ReplyResponse.ok();
-    }
-
     @ApiOperation(value = "明细记录", notes = "detail")
     @PostMapping("/detail")
     public ReplyResponse<${entity}> detail(
