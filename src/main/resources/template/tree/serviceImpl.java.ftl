@@ -147,6 +147,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
             parent.setId(0l);
             parent.setParentId(parent.getId());
             entity.setParent(parent);
+            entity.setParentId(0l);
             entity.getParent().setParentIds(StringUtils.EMPTY);
         } else {
             entity.setParent(super.getById(parentId));
