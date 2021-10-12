@@ -1,0 +1,100 @@
+{
+  "projectName": "gongan01",
+  "moduleName": "gongan",
+  "databaseName": "gongan01",
+  "functionName": "数据支援服务",
+  "functionNameSimple": "",
+  "functionAuthor": "MoWei",
+  "table": {
+    "number": "904",
+    "name": "zyfw_sjfw",
+    "comments": "数据支援服务",
+    "className": "ZnkfQuestion",
+    "parentTable": "",
+    "parentTableFk": "",
+    "isTree":true,
+    "columnList": [
+      {
+        "name": "state",
+        "comments": "状态"
+      },
+      {
+        "name": "process_instance_id",
+        "comments": "流程ID"
+      },
+      {
+        "name": "task_id",
+        "comments": "任务ID"
+      },
+      {
+        "name": "sq_title",
+        "comments": "申请标题"
+      },
+      {
+        "name": "sq_content",
+        "comments": "申请内容",
+        "jdbcType": "varchar(2000)",
+        "uiControl": "textarea"
+      },
+      {
+        "name": "sq_user_id",
+        "comments": "申请人ID",
+        "jdbcType": "bigint(20)"
+      },
+      {
+        "name": "sq_time",
+        "comments": "申请时间"
+      },
+      {
+        "name": "qs_user_id",
+        "comments": "签收人ID",
+        "jdbcType": "bigint(20)"
+      },
+      {
+        "name": "qs_time",
+        "comments": "签收时间"
+      },
+      {
+        "name": "jj_user_id",
+        "comments": "拒绝人ID",
+        "jdbcType": "bigint(20)"
+      },
+      {
+        "name": "jj_reason",
+        "comments": "拒绝原因"
+      },
+      {
+        "name": "jj_time",
+        "comments": "拒绝时间"
+      },
+      {
+        "name": "fk_title",
+        "comments": "反馈标题"
+      },
+      {
+        "name": "fk_content",
+        "comments": "反馈内容",
+        "jdbcType": "varchar(2000)",
+        "uiControl": "textarea"
+      },
+      {
+        "name": "fk_user_id",
+        "comments": "反馈人ID",
+        "jdbcType": "bigint(20)"
+      },
+      {
+        "name": "fk_time",
+        "comments": "反馈时间"
+      },
+      {
+        "name": "fkqs_user_id",
+        "comments": "反馈签收人ID",
+        "jdbcType": "bigint(20)"
+      },
+      {
+        "name": "fkqs_time",
+        "comments": "反馈签收时间"
+      }
+    ]
+  }
+}

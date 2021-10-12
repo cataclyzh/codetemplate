@@ -2,7 +2,7 @@
 <template>
 	<name>sql</name>
 	<filePath>genResult/sql</filePath>
-	<fileName>${ClassName}.sql</fileName>
+	<fileName>t${table.number}_${table.name}.sql</fileName>
 	<content><![CDATA[
 
 DROP TABLE IF EXISTS `t${table.number}_${table.name}`;
