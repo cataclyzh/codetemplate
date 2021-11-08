@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import com.dt.context.model.UserVo;
-import com.dt.gongan.manager.DatabaseManager;
+import com.dt.context.manager.SystemManager;
 import com.dt.gongan.dao.converter.${model?cap_first}Converter;
 /**
  * <p>
@@ -62,7 +62,7 @@ public class ${table.controllerName} {
     private ${table.serviceName} ${'${table.serviceName}'?uncap_first};
 
     @Autowired
-    private DatabaseManager databaseManager;
+    private SystemManager systemManager;
 
     @ApiOperation(value="进行${table.comment!}树形结构", notes="进行${table.comment!}树形结构")
     @PostMapping(value = {"tree"})
@@ -93,7 +93,7 @@ public class ${table.controllerName} {
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", pageRequest, loginUserDto, sessionToken);
 
         //接口获取完整的当前用户信息
-        UserVo user = databaseManager.queryUserDetail(loginUserDto.getId());
+        UserVo user = systemManager.getUserInfo(String.valueOf(loginUserDto.getId()));
         log.info("user: {}", user);
 
         log.info("page request: {}", pageRequest);
@@ -120,7 +120,7 @@ public class ${table.controllerName} {
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
 
         //接口获取完整的当前用户信息
-        UserVo user = databaseManager.queryUserDetail(loginUserDto.getId());
+        UserVo user = systemManager.getUserInfo(String.valueOf(loginUserDto.getId()));
         log.info("user: {}", user);
 
         log.info("list request: {}", requestWrapper);
@@ -145,7 +145,7 @@ public class ${table.controllerName} {
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
 
         //接口获取完整的当前用户信息
-        UserVo user = databaseManager.queryUserDetail(loginUserDto.getId());
+        UserVo user = systemManager.getUserInfo(String.valueOf(loginUserDto.getId()));
         log.info("user: {}", user);
 
         log.info("insert request: {}", requestWrapper);
@@ -166,7 +166,7 @@ public class ${table.controllerName} {
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
 
         //接口获取完整的当前用户信息
-        UserVo user = databaseManager.queryUserDetail(loginUserDto.getId());
+        UserVo user = systemManager.getUserInfo(String.valueOf(loginUserDto.getId()));
         log.info("user: {}", user);
 
         log.info("update request: {}", requestWrapper);
@@ -187,7 +187,7 @@ public class ${table.controllerName} {
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
 
         //接口获取完整的当前用户信息
-        UserVo user = databaseManager.queryUserDetail(loginUserDto.getId());
+        UserVo user = systemManager.getUserInfo(String.valueOf(loginUserDto.getId()));
         log.info("user: {}", user);
 
         log.info("delete request: {}", requestWrapper);
@@ -206,7 +206,7 @@ public class ${table.controllerName} {
             HttpServletRequest request) {
         MyHttpTools.printHeaderInfo(request);
         //用户信息处理
-        UserVo loginUserDto = MyHttpTools.convertUserVo(userJson);
+        UserVo user = systemManager.getUserInfo(String.valueOf(loginUserDto.getId()));
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
 
         //接口获取完整的当前用户信息
