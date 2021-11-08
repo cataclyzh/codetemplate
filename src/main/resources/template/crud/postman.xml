@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+	<name>model</name>
+	<filePath>genResult/api/</filePath>
+	<fileName>T${table.number}${table.name?cap_first}api.json</fileName>
+	<content><![CDATA[
+{
+	"info": {
+		"name": "t${table.number}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "t${table.number}/tree",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "sessionToken",
+						"value": "dev",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseIP}}:{{basePort}}/{{baseGaPath}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/tree",
+					"protocol": "http",
+					"host": [
+						"{{baseIP}}"
+					],
+					"port": "{{basePort}}",
+					"path": [
+						"{{baseGaPath}}",
+						"${projectName}",
+						"${moduleName}",
+						"t${table.number}-${table.name}-entity",
+						"tree"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "t${table.number}/page",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "sessionToken",
+						"value": "dev",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {<#list table.columnList as c>\r\n\"${c.name}\": <#if c.javaType='String'>\"\"<#else>0</#if><#if c_has_next>,</#if>\r\n</#list>    },\r\n    \"currentPage\": 1,\r\n    \"pageSize\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseIP}}:{{basePort}}/{{baseGaPath}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/page",
+					"protocol": "http",
+					"host": [
+						"{{baseIP}}"
+					],
+					"port": "{{basePort}}",
+					"path": [
+						"{{baseGaPath}}",
+						"${projectName}",
+						"${moduleName}",
+						"t${table.number}-${table.name}-entity",
+						"page"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "v${table.number}/page",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "sessionToken",
+						"value": "dev",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {<#list table.columnList as c>\r\n\"${c.name}\": <#if c.javaType='String'>\"\"<#else>0</#if><#if c_has_next>,</#if>\r\n</#list>    },\r\n    \"currentPage\": 1,\r\n    \"pageSize\": 10\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseIP}}:{{basePort}}/{{baseGaPath}}/${projectName}/${moduleName}/v${table.number}-${table.name}-entity/page",
+					"protocol": "http",
+					"host": [
+						"{{baseIP}}"
+					],
+					"port": "{{basePort}}",
+					"path": [
+						"{{baseGaPath}}",
+						"${projectName}",
+						"${moduleName}",
+						"v${table.number}-${table.name}-entity",
+						"page"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "t${table.number}/list",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "sessionToken",
+						"value": "dev",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {<#list table.columnList as c>\r\n\"${c.name}\": <#if c.javaType='String'>\"\"<#else>0</#if><#if c_has_next>,</#if>\r\n</#list>    }}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseIP}}:{{basePort}}/{{baseGaPath}}/${projectName}/${moduleName}/v${table.number}-${table.name}-entity/list",
+					"protocol": "http",
+					"host": [
+						"{{baseIP}}"
+					],
+					"port": "{{basePort}}",
+					"path": [
+						"{{baseGaPath}}",
+						"${projectName}",
+						"${moduleName}",
+						"t${table.number}-${table.name}-entity",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "t${table.number}/insert",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "sessionToken",
+						"value": "dev",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {<#list table.columnList as c>\r\n\"${c.name}\": <#if c.javaType='String'>\"\"<#else>0</#if><#if c_has_next>,</#if>\r\n</#list>    }}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseIP}}:{{basePort}}/{{baseGaPath}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/insert",
+					"protocol": "http",
+					"host": [
+						"{{baseIP}}"
+					],
+					"port": "{{basePort}}",
+					"path": [
+						"{{baseGaPath}}",
+						"${projectName}",
+						"${moduleName}",
+						"t${table.number}-${table.name}-entity",
+						"insert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "t${table.number}/update",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "sessionToken",
+						"value": "dev",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": {\r\n        \"id\":123,\r\n<#list table.columnList as c>\r\n\"${c.name}\": <#if c.javaType='String'>\"\"<#else>0</#if><#if c_has_next>,</#if>\r\n</#list>    }}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseIP}}:{{basePort}}/{{baseGaPath}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/update",
+					"protocol": "http",
+					"host": [
+						"{{baseIP}}"
+					],
+					"port": "{{basePort}}",
+					"path": [
+						"{{baseGaPath}}",
+						"${projectName}",
+						"${moduleName}",
+						"t${table.number}-${table.name}-entity",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "t${table.number}/delete",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "sessionToken",
+						"value": "dev",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": 123\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseIP}}:{{basePort}}/{{baseGaPath}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/delete",
+					"protocol": "http",
+					"host": [
+						"{{baseIP}}"
+					],
+					"port": "{{basePort}}",
+					"path": [
+						"gaservice",
+						"gongan01",
+						"gongan",
+						"tx02-apply-entity",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tx02/detail",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "sessionToken",
+						"value": "dev",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"data\": 123\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://{{baseIP}}:{{basePort}}/{{baseGaPath}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/detail",
+					"protocol": "http",
+					"host": [
+						"{{baseIP}}"
+					],
+					"port": "{{basePort}}",
+					"path": [
+						"{{baseGaPath}}",
+						"${projectName}",
+						"${moduleName}",
+						"t${table.number}-${table.name}-entity",
+						"detail"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
+]]>
+	</content>
+</template>

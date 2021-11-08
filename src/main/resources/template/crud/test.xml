@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+	<name>model</name>
+	<filePath>genResult/test/java/com/dt/${moduleName}/service</filePath>
+	<fileName>T${table.number}${table.name?cap_first}ServiceTest.java</fileName>
+	<content><![CDATA[
+package com.dt.${moduleName}.service;
+
+import com.dt.core.tools.JsonMapper;
+import com.dt.context.manager.SystemManager;
+import com.dt.context.utils.SpringContextsUtil;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+
+/**
+ * <p>
+ * ${table.comments}
+ * </p>
+ *
+ * @author ${functionAuthor}
+ * @since ${functionVersion}
+ */
+@Slf4j
+@SpringBootTest
+public class T${table.number}${table.name?cap_first}ServiceTest {
+
+    @Autowired
+    private T${table.number}${table.name?cap_first}Service t${table.number}${table.name?cap_first}Service;
+
+    @Test
+    public void addData() throws Exception {
+         t${table.number}${table.name?cap_first}Service.addTestData();
+    }
+}
+]]>
+	</content>
+</template>

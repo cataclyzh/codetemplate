@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+    <name>model</name>
+    <filePath>genResult/java/com/dt/${moduleName}/dao/sqlmapper/</filePath>
+    <fileName>T${table.number}${table.name?cap_first}EntityMapper.xml</fileName>
+    <content><![CDATA[
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dt.${moduleName}.dao.mapper.T${table.number}${table.name?cap_first}Mapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.dt.${moduleName}.dao.entity.T${table.number}${table.name?cap_first}Entity">
+        <id column="id" property="id" />
+        <result column="parent_id" property="parentId" />
+        <result column="parent_ids" property="parentIds" />
+        <result column="sort" property="sort" />
+        <#list table.columnList as c>
+        <result column="${c.name}" property="${c.javaField}" />
+        </#list>
+        <result column="create_time" property="createTime" />
+        <result column="update_time" property="updateTime" />
+        <result column="del_flag" property="delFlag" />
+    </resultMap>
+
+    <select id="findRoots" resultMap="BaseResultMap">
+        SELECT
+        id,
+        parent_id,
+        parent_ids,
+        sort,
+        <#list table.columnList as c>
+        ${c.name},
+        </#list>
+        create_time,
+        update_time,
+        del_flag
+        FROM t${table.number}_${table.name} a
+        <where>
+            a.del_flag = 0
+            AND a.parent_id = 0
+        </where>
+        ORDER BY a.sort ASC
+    </select>
+
+
+    <select id="findByParentIdsLike" resultMap="BaseResultMap">
+        SELECT
+        id,
+        parent_id,
+        parent_ids,
+        sort,
+        <#list table.columnList as c>
+        ${c.name},
+        </#list>
+        create_time,
+        update_time,
+        del_flag
+        FROM  t${table.number}_${table.name} a
+        <where>
+            a.del_flag = 0
+            AND a.parent_ids LIKE ${"#"}{parentIds}
+        </where>
+        ORDER BY a.sort ASC
+    </select>
+
+    <update id="updateParentIds">
+        UPDATE  t${table.number}_${table.name} SET
+        parent_id = ${"#"}{parentId},
+        parent_ids = ${"#"}{parentIds}
+        WHERE id = ${"#"}{id}
+    </update>
+
+</mapper>
+
+]]>
+    </content>
+</template>

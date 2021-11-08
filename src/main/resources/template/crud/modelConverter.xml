@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template>
+	<name>model</name>
+	<filePath>genResult/java/com/dt/${moduleName}/dao/converter/</filePath>
+	<fileName>T${table.number}${table.name?cap_first}ModelConverter.java</fileName>
+	<content><![CDATA[
+package com.dt.${moduleName}.dao.converter;
+
+import com.alibaba.fastjson.JSONObject;
+import com.dt.${moduleName}.dao.entity.T${table.number}${table.name?cap_first}Entity;
+import com.dt.${moduleName}.dao.model.T${table.number}${table.name?cap_first}Model;
+import com.dt.core.tools.JsonMapper;
+import com.dt.context.manager.SystemManager;
+import com.dt.context.utils.SpringContextsUtil;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * <p>
+ * ${table.comments}
+ * </p>
+ *
+ * @author ${functionAuthor}
+ * @since ${functionVersion}
+ */
+public class T${table.number}${table.name?cap_first}ModelConverter {
+
+	static SystemManager systemManager = SpringContextsUtil.getBean(SystemManager.class);
+
+	public static T${table.number}${table.name?cap_first}Model converterToVO(T${table.number}${table.name?cap_first}Entity t${table.number}${table.name?cap_first}Entity){
+		String jsonString = JSONObject.toJSONString(t${table.number}${table.name?cap_first}Entity);
+        T${table.number}${table.name?cap_first}Model result = (T${table.number}${table.name?cap_first}Model)JSONObject.parseObject(jsonString, T${table.number}${table.name?cap_first}Model.class);
+
+        Map<String,Map<String,String>> dictMap=systemManager.getAllDictsMap();
+        <#list table.columnList as c>
+        <#if c.dictType?? && c.dictType != "">
+        if(dictMap.get("${c.dictType}")!=null){
+            result.set${c.simpleJavaField?cap_first}Dict(dictMap.get("${c.dictType}").get(t${table.number}${table.name?cap_first}Entity.get${c.simpleJavaField?cap_first}()));
+        }else{
+            result.set${c.simpleJavaField?cap_first}Dict("");
+        }
+        </#if>
+        </#list>
+        return result;
+    }
+
+    public static List<T${table.number}${table.name?cap_first}Model> converterToVO(List<T${table.number}${table.name?cap_first}Entity> t${table.number}${table.name?cap_first}Entities){
+        List<T${table.number}${table.name?cap_first}Model> result= new ArrayList<>();
+        for(T${table.number}${table.name?cap_first}Entity t${table.number}${table.name?cap_first}Entity:t${table.number}${table.name?cap_first}Entities){
+            result.add(converterToVO(t${table.number}${table.name?cap_first}Entity));
+        }
+        return result;
+    }
+}
+]]>
+	</content>
+</template>
