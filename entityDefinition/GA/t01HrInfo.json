@@ -1,0 +1,123 @@
+{
+  "projectName": "hrm",
+  "moduleName": "hrm",
+  "databaseName": "hrm",
+  "functionName": "人才信息管理系统",
+  "functionNameSimple": "",
+  "functionAuthor": "MoWei",
+  "table": {
+    "number": "01",
+    "name": "humaninfo",
+    "comments": "人才信息",
+    "className": "humanInfo",
+    "parentTable": "",
+    "parentTableFk": "",
+    "columnList": [
+      {
+        "name": "state",
+        "comments": "状态"
+      },
+      {
+        "name": "xm",
+        "comments": "姓名"
+      },
+      {
+        "name": "xb",
+        "comments": "性别",
+        "dictType":"hr_xb"
+      },
+      {
+        "name": "zzmm",
+        "comments": "政治面貌",
+        "dictType": "hr_zzmm"
+      },
+      {
+        "name": "sfzh",
+        "comments": "身份证号码"
+      },
+      {
+        "name": "csrq",
+        "comments": "出生日期"
+      },
+      {
+        "name": "csd_xsq",
+        "comments": "出生地-县（市、区）",
+        "dictType": "hr_csd_xsq"
+      },
+      {
+        "name": "csd_szjd",
+        "comments": "乡镇（街道）"
+      },
+      {
+        "name": "csd_csq",
+        "comments": "村（社区）"
+      },
+      {
+        "name": "csd_other",
+        "comments": "出生地（其他）"
+      },
+      {
+        "name": "byyx",
+        "comments": "毕业院校"
+      },
+      {
+        "name": "zymc",
+        "comments": "专业名称"
+      },
+      {
+        "name": "xl",
+        "comments": "学历",
+        "dictType": "hr_xl"
+      },
+      {
+        "name": "gzdw",
+        "comments": "工作单位"
+      },
+      {
+        "name": "zwmc",
+        "comments": "职务名称"
+      },
+      {
+        "name": "zc",
+        "comments": "职称"
+      },
+      {
+        "name": "gzxz",
+        "comments": "工作性质",
+        "dictType": "hr_gzxz"
+      },
+      {
+        "name": "xjcs",
+        "comments": "现居城市"
+      },
+      {
+        "name": "brlxdh",
+        "comments": "本人联系电话"
+      },
+      {
+        "name": "qq_mail",
+        "comments": "qq邮箱"
+      },
+      {
+        "name": "qq_number",
+        "comments": "qq号码"
+      },
+      {
+        "name": "weixin",
+        "comments": "微信号"
+      },
+      {
+        "name": "jxlxrxm",
+        "comments": "家乡联系人姓名"
+      },
+      {
+        "name": "jxlxrdh",
+        "comments": "家乡联系人电话"
+      },
+      {
+        "name": "sbrsfzh",
+        "comments": "上报人身份证号"
+      }
+    ]
+  }
+}
