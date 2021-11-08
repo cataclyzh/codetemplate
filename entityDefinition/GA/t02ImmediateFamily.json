@@ -1,0 +1,40 @@
+{
+  "projectName": "hrm",
+  "moduleName": "hrm",
+  "databaseName": "hrm",
+  "functionName": "人才信息管理系统",
+  "functionNameSimple": "",
+  "functionAuthor": "MoWei",
+  "table": {
+    "number": "02",
+    "name": "immediate_family",
+    "comments": "直系亲属",
+    "className": "immediateFamily",
+    "parentTable": "",
+    "parentTableFk": "",
+    "columnList": [
+      {
+        "name": "t01_id",
+        "comments": "人才ID",
+        "jdbcType": "bigint(20)"
+      },
+      {
+        "name": "cw",
+        "comments": "称谓",
+        "dictType": "hr_cw"
+      },
+      {
+        "name": "xm",
+        "comments": "姓名"
+      },
+      {
+        "name": "lxfs",
+        "comments": "联系方式"
+      },
+      {
+        "name": "gzdwjzw",
+        "comments": "工作单位及职务"
+      }
+    ]
+  }
+}
