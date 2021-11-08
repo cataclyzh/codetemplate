@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <template>
 	<name>model</name>
-	<filePath>genResult/java/com/dt/${moduleName}/dao/converter/</filePath>
+	<filePath>genResult/java/com/dt/${moduleName}/controller/converter/</filePath>
 	<fileName>T${table.number}${table.name?cap_first}ModelConverter.java</fileName>
 	<content><![CDATA[
-package com.dt.${moduleName}.dao.converter;
+package com.dt.${moduleName}.controller.converter;
 
 import com.alibaba.fastjson.JSONObject;
 import com.dt.${moduleName}.dao.entity.T${table.number}${table.name?cap_first}Entity;

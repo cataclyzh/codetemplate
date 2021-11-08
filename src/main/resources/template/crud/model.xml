@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <template>
 	<name>model</name>
-	<filePath>genResult/java/com/dt/${moduleName}/dao/model/</filePath>
+	<filePath>genResult/java/com/dt/${moduleName}/controller/model/</filePath>
 	<fileName>T${table.number}${table.name?cap_first}Model.java</fileName>
 	<content><![CDATA[
-package com.dt.${moduleName}.dao.model;
+package com.dt.${moduleName}.controller.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

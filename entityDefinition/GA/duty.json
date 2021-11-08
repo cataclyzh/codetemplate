@@ -1,0 +1,67 @@
+{
+  "projectName": "gongan_duty",
+  "moduleName": "duty",
+  "databaseName": "gongan_duty",
+  "functionName": "值班管理",
+  "functionNameSimple": "",
+  "functionAuthor": "MoWei",
+  "table": {
+    "number": "",
+    "name": "duty_hand",
+    "comments": "交班记录",
+    "className": "duty_hand",
+    "parentTable": "",
+    "parentTableFk": "",
+    "isTree":false,
+    "columnList": [
+      {
+        "name": "duty_user_id",
+        "comments": "交班人id",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "hand_user_id",
+        "comments": "接班人id",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "duty_message",
+        "comments": "值班信息",
+        "jdbcType": "varchar(2000)"
+      },
+      {
+        "name": "duty_status",
+        "comments": "交班状态,0:未接班,1:接班",
+        "jdbcType": "char(1)",
+        "dictType": "dszyfwzx_duty_status"
+      },
+      {
+        "name": "duty_time",
+        "comments": "值班时间",
+        "jdbcType": "varchar(50)"
+      },
+      {
+        "name": "today_message",
+        "comments": "当日值班情况",
+        "jdbcType": "varchar(2000)"
+      },
+      {
+        "name": "todo_message",
+        "comments": "需要交接事项",
+        "jdbcType": "varchar(2000)"
+      },
+      {
+        "name": "notice_message",
+        "comments": "需要关注问题",
+        "jdbcType": "varchar(2000)"
+      },
+      {
+        "name": "todo_content",
+        "comments": "交接内容",
+        "jdbcType": "varchar(2000)"
+      }
+    ]
+  }
+}
