@@ -10,7 +10,8 @@ import org.springframework.stereotype.Controller;
 import ${superControllerClassPackage};
 </#if>
 import ${package.Entity}.${entity};
-import ${path}.dao.model.${model?cap_first};
+import ${path}.controller.model.${model?cap_first};
+import ${path}.controller.converter.${model?cap_first}Converter;
 import ${package.Service}.${table.serviceName};
 import java.util.List;
 import io.swagger.annotations.Api;
@@ -32,8 +33,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import com.dt.context.model.UserVo;
-import com.dt.gongan.manager.DatabaseManager;
-import com.dt.gongan.dao.converter.${model?cap_first}Converter;
+import com.dt.context.manager.SystemManager;
 /**
  * <p>
  * ${table.comment!} 前端控制器
@@ -62,7 +62,7 @@ public class ${table.controllerName} {
     private ${table.serviceName} ${'${table.serviceName}'?uncap_first};
 
     @Autowired
-    private DatabaseManager databaseManager;
+    private SystemManager systemManager;
 
     @ApiOperation(value="进行${table.comment!}树形结构", notes="进行${table.comment!}树形结构")
     @PostMapping(value = {"tree"})
@@ -72,7 +72,7 @@ public class ${table.controllerName} {
             UserVo loginUserDto = MyHttpTools.convertUserVo(userJson);
             log.info("login user: {}, sessionToken: {}", loginUserDto, sessionToken);
 
-            List<${entity}> result = ${table.serviceName}.findTree();
+            List<${entity}> result = ${'${table.serviceName}'?uncap_first}.findTree();
             return ReplyResponse.ok(result);
         }catch(Exception e){
             log.error("查询${table.comment!}树形数据异常：",e);
@@ -93,7 +93,7 @@ public class ${table.controllerName} {
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", pageRequest, loginUserDto, sessionToken);
 
         //接口获取完整的当前用户信息
-        UserVo user = databaseManager.queryUserDetail(loginUserDto.getId());
+        UserVo user = systemManager.getUserInfo(String.valueOf(loginUserDto.getId()));
         log.info("user: {}", user);
 
         log.info("page request: {}", pageRequest);
@@ -120,7 +120,7 @@ public class ${table.controllerName} {
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
 
         //接口获取完整的当前用户信息
-        UserVo user = databaseManager.queryUserDetail(loginUserDto.getId());
+        UserVo user = systemManager.getUserInfo(String.valueOf(loginUserDto.getId()));
         log.info("user: {}", user);
 
         log.info("list request: {}", requestWrapper);
@@ -145,7 +145,7 @@ public class ${table.controllerName} {
         log.info("requestWrapper: {}, login user: {}, sessionToken: {}", requestWrapper, loginUserDto, sessionToken);
 
         //接口获取完整的当前用户信息
-        UserVo user = databaseManager.queryUserDetail(loginUserDto.getId());
+        UserVo user = systemManager.getUserInfo(String.valueOf(loginUserDto.getId()));
         log.info("user: {}", user);
 
         log.info("detail request: {}", requestWrapper);

@@ -37,7 +37,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{baseIP}}:{{basePort}}/{{baseGaPath}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/tree",
+					"raw": "http://{{baseIP}}:{{basePort}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/tree",
 					"protocol": "http",
 					"host": [
 						"{{baseIP}}"
@@ -81,7 +81,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{baseIP}}:{{basePort}}/{{baseGaPath}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/page",
+					"raw": "http://{{baseIP}}:{{basePort}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/page",
 					"protocol": "http",
 					"host": [
 						"{{baseIP}}"
@@ -125,7 +125,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{baseIP}}:{{basePort}}/{{baseGaPath}}/${projectName}/${moduleName}/v${table.number}-${table.name}-entity/page",
+					"raw": "http://{{baseIP}}:{{basePort}}/${projectName}/${moduleName}/v${table.number}-${table.name}-entity/page",
 					"protocol": "http",
 					"host": [
 						"{{baseIP}}"
@@ -169,7 +169,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{baseIP}}:{{basePort}}/{{baseGaPath}}/${projectName}/${moduleName}/v${table.number}-${table.name}-entity/list",
+					"raw": "http://{{baseIP}}:{{basePort}}/${projectName}/${moduleName}/v${table.number}-${table.name}-entity/list",
 					"protocol": "http",
 					"host": [
 						"{{baseIP}}"
@@ -213,7 +213,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{baseIP}}:{{basePort}}/{{baseGaPath}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/insert",
+					"raw": "http://{{baseIP}}:{{basePort}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/insert",
 					"protocol": "http",
 					"host": [
 						"{{baseIP}}"
@@ -257,7 +257,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{baseIP}}:{{basePort}}/{{baseGaPath}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/update",
+					"raw": "http://{{baseIP}}:{{basePort}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/update",
 					"protocol": "http",
 					"host": [
 						"{{baseIP}}"
@@ -301,7 +301,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{baseIP}}:{{basePort}}/{{baseGaPath}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/delete",
+					"raw": "http://{{baseIP}}:{{basePort}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/delete",
 					"protocol": "http",
 					"host": [
 						"{{baseIP}}"
@@ -345,7 +345,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://{{baseIP}}:{{basePort}}/{{baseGaPath}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/detail",
+					"raw": "http://{{baseIP}}:{{basePort}}/${projectName}/${moduleName}/t${table.number}-${table.name}-entity/detail",
 					"protocol": "http",
 					"host": [
 						"{{baseIP}}"

@@ -158,6 +158,7 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
         return result;
     }
 
+    @Override
     public List<${entity}> findTree() {
         List<${entity}> roots= baseMapper.findRoots();
         List<${entity}> results= Lists.newArrayList();
@@ -169,5 +170,10 @@ public class ${table.serviceImplName} extends ${superServiceImplClass}<${table.m
             }
         }
         return results;
+    }
+
+    @Override
+    public boolean delete(${entity} entity) {
+        return false;
     }
 }
