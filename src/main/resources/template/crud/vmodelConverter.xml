@@ -4,10 +4,10 @@
 	<filePath>genResult/java/com/dt/${moduleName}/controller/converter/</filePath>
 	<fileName>V${table.number}${table.name?cap_first}ModelConverter.java</fileName>
 	<content><![CDATA[
-package com.dt.${moduleName}.dao.converter;
+package com.dt.${moduleName}.controller.converter;
 
 import com.dt.${moduleName}.dao.entity.V${table.number}${table.name?cap_first}Entity;
-import com.dt.${moduleName}.dao.model.V${table.number}${table.name?cap_first}Model;
+import com.dt.${moduleName}.controller.model.V${table.number}${table.name?cap_first}Model;
 import com.dt.core.tools.JsonMapper;
 
 import com.alibaba.fastjson.JSONObject;

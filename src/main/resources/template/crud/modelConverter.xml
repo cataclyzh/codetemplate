@@ -8,7 +8,7 @@ package com.dt.${moduleName}.controller.converter;
 
 import com.alibaba.fastjson.JSONObject;
 import com.dt.${moduleName}.dao.entity.T${table.number}${table.name?cap_first}Entity;
-import com.dt.${moduleName}.dao.model.T${table.number}${table.name?cap_first}Model;
+import com.dt.${moduleName}.controller.model.T${table.number}${table.name?cap_first}Model;
 import com.dt.core.tools.JsonMapper;
 import com.dt.context.manager.SystemManager;
 import com.dt.context.utils.SpringContextsUtil;

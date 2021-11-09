@@ -4,7 +4,7 @@
 	<filePath>genResult/java/com/dt/${moduleName}/controller/model/</filePath>
 	<fileName>V${table.number}${table.name?cap_first}Model.java</fileName>
 	<content><![CDATA[
-package com.dt.${moduleName}.dao.model;
+package com.dt.${moduleName}.controller.model;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
