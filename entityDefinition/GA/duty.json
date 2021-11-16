@@ -5,9 +5,10 @@
   "functionName": "值班管理",
   "functionNameSimple": "",
   "functionAuthor": "MoWei",
+  "updateDB":true,
   "table": {
     "number": "",
-    "name": "duty_hand",
+    "name": "duty_hand_1",
     "comments": "交班记录",
     "className": "duty_hand",
     "parentTable": "",

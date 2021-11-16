@@ -1,0 +1,62 @@
+{
+  "projectName": "gongan_duty",
+  "moduleName": "duty",
+  "databaseName": "gongan_duty",
+  "functionName": "值班管理",
+  "functionNameSimple": "",
+  "functionAuthor": "MoWei",
+  "table": {
+    "number": "",
+    "name": "scheduling",
+    "comments": "排班信息表",
+    "className": "scheduling",
+    "parentTable": "",
+    "parentTableFk": "",
+    "isTree":false,
+    "columnList": [
+      {
+        "name": "duty_user_id",
+        "jdbcType": "bigint(20)",
+        "comments": "值班人id"
+      },
+      {
+        "name": "duty_day",
+        "comments": "排班日期 2021-06-08",
+        "jdbcType": "varchar(100)"
+      },
+      {
+        "name": "scheduling_am",
+        "comments": "上下午标志 0：上午 1：下午",
+        "jdbcType": "char(1)"
+      },
+      {
+        "name": "duty_org_id",
+        "jdbcType": "bigint(20)",
+        "comments": "值班部门ID"
+      },
+      {
+        "name": "area_id",
+        "jdbcType": "bigint(20)",
+        "comments": "区域ID"
+      },
+      {
+        "name": "duty_name",
+        "comments": "岗位名称",
+        "jdbcType": "varchar(50)",
+        "dictType": "dszyfwzx_duty_name"
+      },
+      {
+        "name": "scheduling_status",
+        "comments": "排班状态(scheduling_status) 未开始, 值班中, 值班结束",
+        "jdbcType": "varchar(50)",
+        "dictType": "dszyfwzx_scheduling_status"
+      },
+      {
+        "name": "scheduling_finish_flag",
+        "comments": "结束标志 0 未结束 1 结束",
+        "jdbcType": "varchar(100)",
+        "dictType": "dszyfwzx_scheduling_finish_flag"
+      }
+    ]
+  }
+}

@@ -26,6 +26,7 @@ public class Schema {
 
 	private Boolean replaceFile;	// 是否替换现有文件    0：不替换；1：替换文件
 
+	private Boolean updateDB=false;	// 是否更新数据库    0：不替换；1：替换文件
 	public String getDatabaseName() {
 		return databaseName;
 	}
@@ -66,7 +67,13 @@ public class Schema {
 		this.packageName = packageName;
 	}
 
+	public Boolean getUpdateDB() {
+		return updateDB;
+	}
 
+	public void setUpdateDB(Boolean updateDB) {
+		this.updateDB = updateDB;
+	}
 
 	public String getFunctionName() {
 		return functionName;

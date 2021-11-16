@@ -98,12 +98,14 @@ public class CodeGenerator {
 		Map<String, Object> model = GenUtils.getDataModel(genScheme);
 		//生成代码
 		generateCode(templatePath,result, model, "/sql_plugin");
-		String sqlFile=result.toString();
-		JdbcTemplate jdbcTemplate= JDBCTemplateUtils.genJdbcTemplate(genScheme.getDatabaseName());
-		String sql=FileUtils.readFileToString(new File(sqlFile));
-		for (String s : sql.split(";")) {
-			if(StringUtils.isNotEmpty(s.trim())) {
-				jdbcTemplate.update(s.trim());
+		if((Boolean)model.get("updateDB")) {
+			String sqlFile = result.toString();
+			JdbcTemplate jdbcTemplate = JDBCTemplateUtils.genJdbcTemplate(genScheme.getDatabaseName());
+			String sql = FileUtils.readFileToString(new File(sqlFile));
+			for (String s : sql.split(";")) {
+				if (StringUtils.isNotEmpty(s.trim())) {
+					jdbcTemplate.update(s.trim());
+				}
 			}
 		}
 		DataSourceConfigBuilder builder = new DataSourceConfigBuilder(genScheme.getDatabaseName(),genScheme.getModuleName());

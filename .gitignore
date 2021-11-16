@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+!/src/main/resources/template/crud/model.xml
+!/src/main/resources/template/crud/postman.xml
+!/src/main/resources/template/crud/sql_mapper.xml
+!/src/main/resources/template/crud/sql_plugin.xml
+!/src/main/resources/template/crud/test.xml
+!/src/main/resources/template/crud/vmodelConverter.xml
+!/src/main/resources/template/crud/vmodel.xml
+!/src/main/resources/template/crud/modelConverter.xml
