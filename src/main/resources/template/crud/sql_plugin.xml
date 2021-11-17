@@ -63,7 +63,7 @@ from `t${table.number}_${table.name}`
    left join `v_user` `${c.userPrefix}_user`
    on `t${table.number}_${table.name}`.`${c.userPrefix}_user_id` = `${c.userPrefix}_user`.`user_id`
   <#elseif c.isOrg >
-   left join `v_user` `${c.orgPrefix}_org`
+   left join `v_org` `${c.orgPrefix}_org`
     on `t${table.number}_${table.name}`.`${c.orgPrefix}_org_id` = `${c.orgPrefix}_org`.`org_id`
   <#elseif c.joinTableName!='' >
    left join `${c.joinTable.fullName}` `${c.joinTableName}`

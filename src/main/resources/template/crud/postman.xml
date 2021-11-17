@@ -72,7 +72,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"data\": {<#list table.columnList as c>\r\n\"${c.name}\": <#if c.javaType='String'>\"\"<#else>0</#if><#if c_has_next>,</#if>\r\n</#list>    },\r\n    \"currentPage\": 1,\r\n    \"pageSize\": 10\r\n}",
+					"raw": "{\r\n    \"data\": {<#list table.columnList as c>\r\n\"${c.javaField}\": <#if c.javaType='String'>\"\"<#else>0</#if><#if c_has_next>,</#if>\r\n</#list>    },\r\n    \"currentPage\": 1,\r\n    \"pageSize\": 10\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -115,7 +115,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"data\": {<#list table.columnList as c>\r\n\"${c.name}\": <#if c.javaType='String'>\"\"<#else>0</#if><#if c_has_next>,</#if>\r\n</#list>    },\r\n    \"currentPage\": 1,\r\n    \"pageSize\": 10\r\n}",
+					"raw": "{\r\n    \"data\": {<#list table.columnList as c>\r\n\"${c.javaField}\": <#if c.javaType='String'>\"\"<#else>0</#if><#if c_has_next>,</#if>\r\n</#list>    },\r\n    \"currentPage\": 1,\r\n    \"pageSize\": 10\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -158,7 +158,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"data\": {<#list table.columnList as c>\r\n\"${c.name}\": <#if c.javaType='String'>\"\"<#else>0</#if><#if c_has_next>,</#if>\r\n</#list>    }}",
+					"raw": "{\r\n    \"data\": {<#list table.columnList as c>\r\n\"${c.javaField}\": <#if c.javaType='String'>\"\"<#else>0</#if><#if c_has_next>,</#if>\r\n</#list>    }}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -201,7 +201,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"data\": {<#list table.columnList as c>\r\n\"${c.name}\": <#if c.javaType='String'>\"\"<#else>0</#if><#if c_has_next>,</#if>\r\n</#list>    }}",
+					"raw": "{\r\n    \"data\": {<#list table.columnList as c>\r\n\"${c.javaField}\": <#if c.javaType='String'>\"\"<#else>0</#if><#if c_has_next>,</#if>\r\n</#list>    }}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -244,7 +244,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"data\": {\r\n        \"id\":123,\r\n<#list table.columnList as c>\r\n\"${c.name}\": <#if c.javaType='String'>\"\"<#else>0</#if><#if c_has_next>,</#if>\r\n</#list>    }}",
+					"raw": "{\r\n    \"data\": {\r\n        \"id\":123,\r\n<#list table.columnList as c>\r\n\"${c.javaField}\": <#if c.javaType='String'>\"\"<#else>0</#if><#if c_has_next>,</#if>\r\n</#list>    }}",
 					"options": {
 						"raw": {
 							"language": "json"
