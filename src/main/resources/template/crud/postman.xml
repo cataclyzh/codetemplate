@@ -44,7 +44,6 @@
 					],
 					"port": "{{basePort}}",
 					"path": [
-						"{{baseGaPath}}",
 						"${projectName}",
 						"${moduleName}",
 						"t${table.number}-${table.name}-entity",
@@ -88,7 +87,6 @@
 					],
 					"port": "{{basePort}}",
 					"path": [
-						"{{baseGaPath}}",
 						"${projectName}",
 						"${moduleName}",
 						"t${table.number}-${table.name}-entity",
@@ -132,7 +130,6 @@
 					],
 					"port": "{{basePort}}",
 					"path": [
-						"{{baseGaPath}}",
 						"${projectName}",
 						"${moduleName}",
 						"v${table.number}-${table.name}-entity",
@@ -176,7 +173,6 @@
 					],
 					"port": "{{basePort}}",
 					"path": [
-						"{{baseGaPath}}",
 						"${projectName}",
 						"${moduleName}",
 						"t${table.number}-${table.name}-entity",
@@ -220,7 +216,6 @@
 					],
 					"port": "{{basePort}}",
 					"path": [
-						"{{baseGaPath}}",
 						"${projectName}",
 						"${moduleName}",
 						"t${table.number}-${table.name}-entity",
@@ -264,7 +259,6 @@
 					],
 					"port": "{{basePort}}",
 					"path": [
-						"{{baseGaPath}}",
 						"${projectName}",
 						"${moduleName}",
 						"t${table.number}-${table.name}-entity",
@@ -308,10 +302,9 @@
 					],
 					"port": "{{basePort}}",
 					"path": [
-						"gaservice",
-						"gongan01",
-						"gongan",
-						"tx02-apply-entity",
+						"${projectName}",
+						"${moduleName}",
+						"t${table.number}-${table.name}-entity",
 						"delete"
 					]
 				}
@@ -352,7 +345,6 @@
 					],
 					"port": "{{basePort}}",
 					"path": [
-						"{{baseGaPath}}",
 						"${projectName}",
 						"${moduleName}",
 						"t${table.number}-${table.name}-entity",
