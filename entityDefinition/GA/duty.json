@@ -5,7 +5,6 @@
   "functionName": "值班管理",
   "functionNameSimple": "",
   "functionAuthor": "MoWei",
-  "updateDB":false,
   "table": {
     "number": "",
     "name": "duty_hand_12",
