@@ -1,0 +1,377 @@
+{
+  "projectName": "gongan_duty",
+  "moduleName": "duty",
+  "databaseName": "gongan_duty_zh1",
+  "functionName": "区县服务申请",
+  "functionNameSimple": "",
+  "functionAuthor": "zh",
+  "updateDB":true,
+  "table": {
+    "number": "",
+    "name": "qx_apply",
+    "comments": "区县申请服务",
+    "className": "QxApply",
+    "parentTable": "",
+    "parentTableFk": "",
+    "isTree":false,
+    "columnList": [
+      {
+        "name": "qx_approve_tijiao_user_id",
+        "comments": "区县服务单编辑人员",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "qx_approve_tijiao_time",
+        "comments": "区县服务单审批提交时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_type",
+        "comments": "服务单分类",
+        "jdbcType": "varchar(50)",
+        "dictType": "gongan_duty_apply_type",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_no",
+        "comments": "服务单编号",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_jinji_type",
+        "comments": "紧急程度",
+        "jdbcType": "varchar(50)",
+        "dictType": "gongan_duty_apply_jinji_type",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_zhuti",
+        "comments": "需求主题",
+        "jdbcType": "varchar(200)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_danwei_fuzeren",
+        "comments": "申请单位负责人",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_danwei_fuzeren_mobile",
+        "comments": "申请单位负责人联系方式",
+        "jdbcType": "varchar(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_lianxi_minjing",
+        "comments": "联系民警",
+        "jdbcType": "varchar(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_lianxi_minjing_mobile",
+        "comments": "联系民警联系方式",
+        "jdbcType": "varchar(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_banli_shixian",
+        "comments": "办理时限",
+        "jdbcType": "int",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_banli_shixian_danwei",
+        "comments": "办理时限单位",
+        "jdbcType": "varchar(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_shenqing_yiju",
+        "comments": "申请依据",
+        "jdbcType": "varchar(200)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_juti_xuqiu",
+        "comments": "具体需求",
+        "jdbcType": "text",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_shenqingbiao",
+        "comments": "申请表",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_attachment_ids",
+        "comments": "申请单附件上传",
+        "jdbcType": "varchar(100)",
+        "isNull": "1"
+      },
+      {
+        "name": "qx_approve_user_id",
+        "comments": "区县服务单审批人员",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "qx_approve_time",
+        "comments": "区县服务单审批时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "qx_approve_message",
+        "comments": "区县服务单审批退回意见",
+        "jdbcType": "varchar(200)",
+        "isNull": "1"
+      },
+      {
+        "name": "ds_user_ids_decided",
+        "comments": "地市可签收人员",
+        "jdbcType": "varchar(100)",
+        "isNull": "1"
+      },
+      {
+        "name": "qx_apply_tijiao_user_id",
+        "comments": "区县服务单提交人员",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "qx_apply_tijiao_time",
+        "comments": "区县服务单提交时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "ds_sign_user_id",
+        "comments": "地市签收人员",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "ds_sign_time",
+        "comments": "地市服务单签收时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "ds_sign_message",
+        "comments": "地市服务单签收退回意见",
+        "jdbcType": "varchar(500)",
+        "isNull": "1"
+      },
+      {
+        "name": "ds_feedback_user_id",
+        "comments": "地市反馈人员",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "ds_feedback_time",
+        "comments": "地市服务单反馈时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "ds_feedback_message",
+        "comments": "地市服务单反馈意见",
+        "jdbcType": "varchar(500)",
+        "isNull": "1"
+      },
+      {
+        "name": "feedback_zhuti",
+        "comments": "反馈主题",
+        "jdbcType": "varchar(200)",
+        "isNull": "1"
+      },
+      {
+        "name": "feedback_qihao",
+        "comments": "期号",
+        "jdbcType": "varchar(100)",
+        "isNull": "1"
+      },
+      {
+        "name": "feedback_neirong",
+        "comments": "反馈内容",
+        "jdbcType": "text",
+        "isNull": "1"
+      },
+      {
+        "name": "feedback_fankuiren",
+        "comments": "反馈人",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "feedback_hegaoren",
+        "comments": "核稿人",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "feedback_qianfaren",
+        "comments": "签发人",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "feedback_shujuchuliliang",
+        "comments": "数据处理量（条）",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "feedback_fankuijieguoliang_tiao",
+        "comments": "反馈结果量（条）",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "feedback_fankuijieguoliang_ren",
+        "comments": "数据处理量（人）",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "feedback_danwei",
+        "comments": "单位",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "feedback_zhuzhi",
+        "comments": "组织",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "feedback_fankuibiao",
+        "comments": "反馈表（在线编辑）",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "feddback_attachement_ids",
+        "comments": "反馈单附件上传",
+        "jdbcType": "varchar(100)",
+        "isNull": "1"
+      },
+      {
+        "name": "ds_feedback_approve_user_id",
+        "comments": "地市反馈审批人员",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "ds_feedback_approve_time",
+        "comments": "地市服务单反馈审批时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "ds_feedback_approve_message",
+        "comments": "地市服务单反馈审批意见",
+        "jdbcType": "varchar(500)",
+        "isNull": "1"
+      },
+      {
+        "name": "qx_feedback_sign_user_id",
+        "comments": "区县反馈签收人员",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "qx_feedback_sign_time",
+        "comments": "区县服务单反馈签收时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "qx_feedback_sign_message",
+        "comments": "区县服务单反馈签收意见",
+        "jdbcType": "varchar(500)",
+        "isNull": "1"
+      },
+      {
+        "name": "qx_report_valuation_user_id",
+        "comments": "区县评价人员",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "qx_report_valuation_time",
+        "comments": "区县成果报送和评价时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "qx_report_pingfen",
+        "comments": "区县成效评分",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "finish_operator_user_id",
+        "comments": "完结操作人员",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "finish_time",
+        "comments": "服务单正常结束时间",
+        "jdbcType": "char(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "closed_operator_user_id",
+        "comments": "关闭操作人员",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "closed_time",
+        "comments": "服务单关闭时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "closed_message",
+        "comments": "服务单关闭意见",
+        "jdbcType": "varchar(200)",
+        "isNull": "1"
+      },
+      {
+        "name": "process_status",
+        "comments": "流程状态",
+        "jdbcType": "varchar(200)",
+        "dictType": "gongan_duty_qx_process_status",
+        "isNull": "1"
+      },
+      {
+        "name": "owner_user_id",
+        "comments": "表单所有者",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "process_instance_id",
+        "comments": "流程实例id",
+        "jdbcType": "varchar(200)",
+        "isNull": "1"
+      },
+      {
+        "name": "task_id",
+        "comments": "流程任务id",
+        "jdbcType": "varchar(200)",
+        "isNull": "1"
+      }
+    ]
+  }
+}
