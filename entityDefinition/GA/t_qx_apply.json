@@ -16,13 +16,13 @@
     "isTree":false,
     "columnList": [
       {
-        "name": "qx_approve_tijiao_user_id",
+        "name": "qx_edit_user_id",
         "comments": "区县服务单编辑人员",
         "jdbcType": "bigint(20)",
         "isNull": "1"
       },
       {
-        "name": "qx_approve_tijiao_time",
+        "name": "qx_edit_time",
         "comments": "区县服务单审批提交时间",
         "jdbcType": "char(19)",
         "isNull": "1"
@@ -132,12 +132,6 @@
         "isNull": "1"
       },
       {
-        "name": "ds_user_ids_decided",
-        "comments": "地市可签收人员",
-        "jdbcType": "varchar(100)",
-        "isNull": "1"
-      },
-      {
         "name": "qx_apply_tijiao_user_id",
         "comments": "区县服务单提交人员",
         "jdbcType": "bigint(20)",
@@ -194,7 +188,7 @@
       {
         "name": "feedback_qihao",
         "comments": "期号",
-        "jdbcType": "varchar(100)",
+        "jdbcType": "int",
         "isNull": "1"
       },
       {

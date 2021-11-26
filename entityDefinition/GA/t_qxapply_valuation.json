@@ -1,0 +1,44 @@
+{
+  "projectName": "gongan_duty",
+  "moduleName": "duty",
+  "databaseName": "gongan_duty_zh1",
+  "functionName": "区县服务成效反馈",
+  "functionNameSimple": "",
+  "functionAuthor": "zh",
+  "updateDB":true,
+  "table": {
+    "number": "",
+    "name": "t_qxapply_valuation",
+    "comments": "区县服务成效反馈",
+    "className": "QxApplyValuation",
+    "parentTable": "",
+    "parentTableFk": "",
+    "isTree":false,
+    "columnList": [
+      {
+        "name": "t_qxapply_id",
+        "comments": "区县服务表id",
+        "jdbcType": "bigint(20)",
+        "isNull": "0"
+      },
+      {
+        "name": "valuation_user_id",
+        "comments": "成效反馈人",
+        "jdbcType": "bigint(20)",
+        "isNull": "0"
+      },
+      {
+        "name": "valuation_time",
+        "comments": "成效反馈时间",
+        "jdbcType": "char(19)",
+        "isNull": "0"
+      },
+      {
+        "name": "valuation_content",
+        "comments": "成效反馈内容",
+        "jdbcType": "varchar(500)",
+        "isNull": "1"
+      }
+    ]
+  }
+}
