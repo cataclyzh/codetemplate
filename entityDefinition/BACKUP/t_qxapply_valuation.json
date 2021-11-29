@@ -8,7 +8,7 @@
   "updateDB":true,
   "table": {
     "number": "",
-    "name": "t_qxapply_valuation",
+    "name": "qxapply_valuation",
     "comments": "区县服务成效反馈",
     "className": "QxApplyValuation",
     "parentTable": "",
@@ -16,7 +16,7 @@
     "isTree":false,
     "columnList": [
       {
-        "name": "t_qxapply_id",
+        "name": "tqxapply_id",
         "comments": "区县服务表id",
         "jdbcType": "bigint(20)",
         "isNull": "0"
