@@ -306,8 +306,20 @@
         "isNull": "1"
       },
       {
+        "name": "qx_report_pingfen_shizhan",
+        "comments": "实战评分",
+        "jdbcType": "int",
+        "isNull": "1"
+      },
+      {
+        "name": "qx_report_pingfen_fuwu",
+        "comments": "服务评分",
+        "jdbcType": "int",
+        "isNull": "1"
+      },
+      {
         "name": "qx_report_pingfen",
-        "comments": "区县成效评分",
+        "comments": "总评分",
         "jdbcType": "int",
         "isNull": "1"
       },
@@ -355,15 +367,9 @@
         "isNull": "1"
       },
       {
-        "name": "process_instance_id",
-        "comments": "流程实例id",
-        "jdbcType": "varchar(200)",
-        "isNull": "1"
-      },
-      {
-        "name": "task_id",
-        "comments": "流程任务id",
-        "jdbcType": "varchar(200)",
+        "name": "check_return",
+        "comments": "流程是否处于退回状态",
+        "jdbcType": "varchar(20)",
         "isNull": "1"
       }
     ]
