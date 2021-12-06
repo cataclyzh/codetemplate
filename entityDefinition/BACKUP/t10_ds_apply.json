@@ -8,7 +8,7 @@
   "updateDB":true,
   "table": {
     "number": "",
-    "name": "qx_apply",
+    "name": "ds_apply",
     "comments": "区县申请服务",
     "className": "QxApply",
     "parentTable": "",
@@ -363,18 +363,6 @@
       {
         "name": "owner_user_id",
         "comments": "表单所有者",
-        "jdbcType": "bigint(20)",
-        "isNull": "1"
-      },
-      {
-        "name": "process_owner_org_id",
-        "comments": "流程单所属单位",
-        "jdbcType": "bigint(20)",
-        "isNull": "1"
-      },
-      {
-        "name": "process_approve_org_id",
-        "comments": "流程审批单位",
         "jdbcType": "bigint(20)",
         "isNull": "1"
       },
