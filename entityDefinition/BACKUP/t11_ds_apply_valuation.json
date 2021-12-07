@@ -1,0 +1,44 @@
+{
+  "projectName": "gongan_duty",
+  "moduleName": "duty",
+  "databaseName": "gongan_duty_zh1",
+  "functionName": "地市服务成效反馈",
+  "functionNameSimple": "",
+  "functionAuthor": "zh",
+  "updateDB":true,
+  "table": {
+    "number": "",
+    "name": "dsapply_valuation",
+    "comments": "地市服务成效反馈",
+    "className": "DsApplyValuation",
+    "parentTable": "",
+    "parentTableFk": "",
+    "isTree":false,
+    "columnList": [
+      {
+        "name": "tdsapply_id",
+        "comments": "地市服务表id",
+        "jdbcType": "bigint(20)",
+        "isNull": "0"
+      },
+      {
+        "name": "valuation_user_id",
+        "comments": "成效反馈人",
+        "jdbcType": "bigint(20)",
+        "isNull": "0"
+      },
+      {
+        "name": "valuation_time",
+        "comments": "成效反馈时间",
+        "jdbcType": "char(19)",
+        "isNull": "0"
+      },
+      {
+        "name": "valuation_content",
+        "comments": "成效反馈内容",
+        "jdbcType": "varchar(500)",
+        "isNull": "1"
+      }
+    ]
+  }
+}

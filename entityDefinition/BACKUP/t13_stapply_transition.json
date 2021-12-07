@@ -1,0 +1,194 @@
+{
+  "projectName": "gongan_duty",
+  "moduleName": "duty",
+  "databaseName": "gongan_duty_zh1",
+  "functionName": "地市服务退回信息记录表",
+  "functionNameSimple": "",
+  "functionAuthor": "zh",
+  "updateDB":true,
+  "table": {
+    "number": "",
+    "name": "stapply_transition",
+    "comments": "省厅转发流程",
+    "className": "StApplyTransition",
+    "parentTable": "",
+    "parentTableFk": "",
+    "isTree":false,
+    "columnList": [
+      {
+        "name": "transition_org_id",
+        "comments": "转办单位id",
+        "jdbcType": "bigint(20)",
+        "isNull": "0"
+      },
+      {
+        "name": "transition_time",
+        "comments": "转办时间",
+        "jdbcType": "char(19)",
+        "isNull": "0"
+      },
+      {
+        "name": "transition_sign_user_id",
+        "comments": "转办签收人",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_sign_time",
+        "comments": "转办签收时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_feedback_user_id",
+        "comments": "转办反馈人员id",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_feedback_time",
+        "comments": "转办服务单反馈时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_feedback_message",
+        "comments": "转办服务单反馈意见",
+        "jdbcType": "varchar(300)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_feedback_zhuti",
+        "comments": "转办反馈主题",
+        "jdbcType": "varchar(300)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_feedback_qihao",
+        "comments": "转办反馈期号",
+        "jdbcType": "int",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_feedback_neirong",
+        "comments": "转办反馈内容",
+        "jdbcType": "varchar(500)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_feedback_fankuiren",
+        "comments": "转办反馈人",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_feedback_hegaoren",
+        "comments": "转办核稿人",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_feedback_qianfaren",
+        "comments": "转办签发人",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_feedback_shujuchuliliang",
+        "comments": "转办数据处理量",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_feedback_fankuijieguoliang_tiao",
+        "comments": "转办反馈结果量（条）",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_feedback_fankuijieguoliang_ren",
+        "comments": "转办反馈结果量（人）",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_feedback_danwei",
+        "comments": "转办单位",
+        "jdbcType": "varchar(300)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_feedback_zuzhi",
+        "comments": "转办组织",
+        "jdbcType": "varchar(300)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_feedback_fankuibiao",
+        "comments": "转办反馈表（在线编辑）",
+        "jdbcType": "varchar(300)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_feddback_attachement_ids",
+        "comments": "转办反馈单附件上传",
+        "jdbcType": "varchar(300)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_approve_user_id",
+        "comments": "转办反馈审批人",
+        "jdbcType": "varchar(300)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_approve_time",
+        "comments": "转办反馈审批时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_approve_message",
+        "comments": "转办反馈审批意见",
+        "jdbcType": "varchar(500)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_id",
+        "comments": "主流程id",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_type",
+        "comments": "主流程类型",
+        "jdbcType": "varchar(300)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_process_status",
+        "comments": "转办流程状态",
+        "jdbcType": "varchar(300)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_person_user_id",
+        "comments": "表单转发人id",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "process_owner_org_id",
+        "comments": "流程单所属单位id",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "check_return",
+        "comments": "流程是否处于退回状态",
+        "jdbcType": "varchar(200)",
+        "isNull": "1"
+      }
+    ]
+  }
+}

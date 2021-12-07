@@ -2,28 +2,28 @@
   "projectName": "gongan_duty",
   "moduleName": "duty",
   "databaseName": "gongan_duty_zh1",
-  "functionName": "区县服务申请",
+  "functionName": "地市服务申请",
   "functionNameSimple": "",
   "functionAuthor": "zh",
   "updateDB":true,
   "table": {
     "number": "",
-    "name": "qx_apply",
-    "comments": "区县申请服务",
-    "className": "QxApply",
+    "name": "ds_apply",
+    "comments": "地市申请服务",
+    "className": "DsApply",
     "parentTable": "",
     "parentTableFk": "",
     "isTree":false,
     "columnList": [
       {
-        "name": "qx_edit_user_id",
-        "comments": "区县服务单编辑人员",
+        "name": "ds_edit_user_id",
+        "comments": "地市服务单编辑人员",
         "jdbcType": "bigint(20)",
         "isNull": "1"
       },
       {
-        "name": "qx_edit_time",
-        "comments": "区县服务单审批提交时间",
+        "name": "ds_edit_time",
+        "comments": "地市服务单审批提交时间",
         "jdbcType": "char(19)",
         "isNull": "1"
       },
@@ -114,68 +114,68 @@
         "isNull": "1"
       },
       {
-        "name": "qx_approve_user_id",
-        "comments": "区县服务单审批人员",
+        "name": "ds_approve_user_id",
+        "comments": "地市服务单审批人员",
         "jdbcType": "bigint(20)",
         "isNull": "1"
       },
       {
-        "name": "qx_approve_time",
-        "comments": "区县服务单审批时间",
+        "name": "ds_approve_time",
+        "comments": "地市服务单审批时间",
         "jdbcType": "char(19)",
         "isNull": "1"
       },
       {
-        "name": "qx_approve_message",
-        "comments": "区县服务单审批退回意见",
+        "name": "ds_approve_message",
+        "comments": "地市服务单审批退回意见",
         "jdbcType": "varchar(200)",
         "isNull": "1"
       },
       {
-        "name": "qx_apply_tijiao_user_id",
-        "comments": "区县服务单提交人员",
+        "name": "ds_apply_tijiao_user_id",
+        "comments": "地市服务单提交人员",
         "jdbcType": "bigint(20)",
         "isNull": "1"
       },
       {
-        "name": "qx_apply_tijiao_time",
-        "comments": "区县服务单提交时间",
+        "name": "ds_apply_tijiao_time",
+        "comments": "地市服务单提交时间",
         "jdbcType": "char(19)",
         "isNull": "1"
       },
       {
-        "name": "ds_sign_user_id",
-        "comments": "地市签收人员",
+        "name": "st_sign_user_id",
+        "comments": "省厅签收人员",
         "jdbcType": "bigint(20)",
         "isNull": "1"
       },
       {
-        "name": "ds_sign_time",
-        "comments": "地市服务单签收时间",
+        "name": "st_sign_time",
+        "comments": "省厅服务单签收时间",
         "jdbcType": "char(19)",
         "isNull": "1"
       },
       {
-        "name": "ds_sign_message",
-        "comments": "地市服务单签收退回意见",
+        "name": "st_sign_message",
+        "comments": "省厅服务单签收退回意见",
         "jdbcType": "varchar(500)",
         "isNull": "1"
       },
       {
-        "name": "ds_feedback_user_id",
-        "comments": "地市反馈人员",
+        "name": "st_feedback_user_id",
+        "comments": "省厅反馈人员",
         "jdbcType": "bigint(20)",
         "isNull": "1"
       },
       {
-        "name": "ds_feedback_time",
-        "comments": "地市服务单反馈时间",
+        "name": "st_feedback_time",
+        "comments": "省厅服务单反馈时间",
         "jdbcType": "char(19)",
         "isNull": "1"
       },
       {
-        "name": "ds_feedback_message",
-        "comments": "地市服务单反馈意见",
+        "name": "st_feedback_message",
+        "comments": "省厅服务单反馈意见",
         "jdbcType": "varchar(500)",
         "isNull": "1"
       },
@@ -252,73 +252,73 @@
         "isNull": "1"
       },
       {
-        "name": "feddback_attachement_ids",
+        "name": "feedback_attachement_ids",
         "comments": "反馈单附件上传",
         "jdbcType": "varchar(100)",
         "isNull": "1"
       },
       {
-        "name": "ds_feedback_approve_user_id",
-        "comments": "地市反馈审批人员",
+        "name": "st_feedback_approve_user_id",
+        "comments": "省厅反馈审批人员",
         "jdbcType": "bigint(20)",
         "isNull": "1"
       },
       {
-        "name": "ds_feedback_approve_time",
-        "comments": "地市服务单反馈审批时间",
+        "name": "st_feedback_approve_time",
+        "comments": "省厅服务单反馈审批时间",
         "jdbcType": "char(19)",
         "isNull": "1"
       },
       {
-        "name": "ds_feedback_approve_message",
-        "comments": "地市服务单反馈审批意见",
+        "name": "st_feedback_approve_message",
+        "comments": "省厅服务单反馈审批意见",
         "jdbcType": "varchar(500)",
         "isNull": "1"
       },
       {
-        "name": "qx_feedback_sign_user_id",
-        "comments": "区县反馈签收人员",
+        "name": "ds_feedback_sign_user_id",
+        "comments": "反馈签收人员",
         "jdbcType": "bigint(20)",
         "isNull": "1"
       },
       {
-        "name": "qx_feedback_sign_time",
-        "comments": "区县服务单反馈签收时间",
+        "name": "ds_feedback_sign_time",
+        "comments": "服务单反馈签收时间",
         "jdbcType": "char(19)",
         "isNull": "1"
       },
       {
-        "name": "qx_feedback_sign_message",
-        "comments": "区县服务单反馈签收意见",
+        "name": "ds_feedback_sign_message",
+        "comments": "服务单反馈签收意见",
         "jdbcType": "varchar(500)",
         "isNull": "1"
       },
       {
-        "name": "qx_report_valuation_user_id",
-        "comments": "区县评价人员",
+        "name": "report_valuation_user_id",
+        "comments": "评价人员",
         "jdbcType": "bigint(20)",
         "isNull": "1"
       },
       {
-        "name": "qx_report_valuation_time",
-        "comments": "区县成果报送和评价时间",
+        "name": "report_valuation_time",
+        "comments": "成果报送和评价时间",
         "jdbcType": "char(19)",
         "isNull": "1"
       },
       {
-        "name": "qx_report_pingfen_shizhan",
+        "name": "report_pingfen_shizhan",
         "comments": "实战评分",
         "jdbcType": "int",
         "isNull": "1"
       },
       {
-        "name": "qx_report_pingfen_fuwu",
+        "name": "report_pingfen_fuwu",
         "comments": "服务评分",
         "jdbcType": "int",
         "isNull": "1"
       },
       {
-        "name": "qx_report_pingfen",
+        "name": "report_pingfen",
         "comments": "总评分",
         "jdbcType": "int",
         "isNull": "1"
@@ -370,13 +370,13 @@
         "name": "process_owner_org_id",
         "comments": "流程单所属单位",
         "jdbcType": "bigint(20)",
-        "isNull": "1"
+        "isNull": "0"
       },
       {
         "name": "process_approve_org_id",
         "comments": "流程审批单位",
         "jdbcType": "bigint(20)",
-        "isNull": "1"
+        "isNull": "0"
       },
       {
         "name": "check_return",

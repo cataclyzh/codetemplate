@@ -367,6 +367,18 @@
         "isNull": "1"
       },
       {
+        "name": "process_owner_org_id",
+        "comments": "流程单所属单位",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "process_approve_org_id",
+        "comments": "流程审批单位",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
         "name": "check_return",
         "comments": "流程是否处于退回状态",
         "jdbcType": "varchar(20)",
