@@ -138,7 +138,7 @@
       {
         "name": "transition_approve_user_id",
         "comments": "转办反馈审批人",
-        "jdbcType": "varchar(300)",
+        "jdbcType": "bigint(20)",
         "isNull": "1"
       },
       {
