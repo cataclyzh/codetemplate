@@ -28,6 +28,12 @@
         "isNull": "0"
       },
       {
+        "name": "apply_zhuti",
+        "comments": "需求主题",
+        "jdbcType": "varchar(500)",
+        "isNull": "0"
+      },
+      {
         "name": "transition_sign_user_id",
         "comments": "转办签收人",
         "jdbcType": "bigint(20)",
@@ -154,13 +160,13 @@
         "isNull": "1"
       },
       {
-        "name": "apply_id",
+        "name": "process_id",
         "comments": "主流程id",
         "jdbcType": "bigint(20)",
         "isNull": "1"
       },
       {
-        "name": "apply_type",
+        "name": "process_type",
         "comments": "主流程类型",
         "jdbcType": "varchar(300)",
         "isNull": "1"

@@ -385,7 +385,7 @@
         "isNull": "1"
       },
       {
-        "name": "apply_type",
+        "name": "process_type",
         "comments": "流程类型",
         "jdbcType": "varchar(200)",
         "isNull": "0"
