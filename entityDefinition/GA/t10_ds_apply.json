@@ -162,6 +162,30 @@
         "isNull": "1"
       },
       {
+        "name": "st_indicate_user_id",
+        "comments": "省厅指示值班长id",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "st_indicate_time",
+        "comments": "省厅指示时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "st_indicate_message",
+        "comments": "省厅指示意见",
+        "jdbcType": "varchar(500)",
+        "isNull": "1"
+      },
+      {
+        "name": "st_indicate_method",
+        "comments": "指示处理方法",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
         "name": "st_feedback_user_id",
         "comments": "省厅反馈人员",
         "jdbcType": "bigint(20)",
@@ -326,7 +350,7 @@
       {
         "name": "finish_operator_user_id",
         "comments": "完结操作人员",
-        "jdbcType": "varchar(50)",
+        "jdbcType": "bigint(20)",
         "isNull": "1"
       },
       {
