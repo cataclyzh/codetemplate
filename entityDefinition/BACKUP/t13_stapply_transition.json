@@ -28,6 +28,12 @@
         "isNull": "0"
       },
       {
+        "name": "apply_zhuti",
+        "comments": "需求主题",
+        "jdbcType": "varchar(500)",
+        "isNull": "0"
+      },
+      {
         "name": "transition_sign_user_id",
         "comments": "转办签收人",
         "jdbcType": "bigint(20)",
@@ -37,6 +43,12 @@
         "name": "transition_sign_time",
         "comments": "转办签收时间",
         "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_sign_message",
+        "comments": "转办签收消息",
+        "jdbcType": "varchar(300)",
         "isNull": "1"
       },
       {
@@ -130,7 +142,13 @@
         "isNull": "1"
       },
       {
-        "name": "transition_feddback_attachement_ids",
+        "name": "feedback_type",
+        "comments": "反馈类型",
+        "jdbcType": "varchar(100)",
+        "isNull": "1"
+      },
+      {
+        "name": "transition_feedback_attachement_ids",
         "comments": "转办反馈单附件上传",
         "jdbcType": "varchar(300)",
         "isNull": "1"
@@ -138,7 +156,7 @@
       {
         "name": "transition_approve_user_id",
         "comments": "转办反馈审批人",
-        "jdbcType": "varchar(300)",
+        "jdbcType": "bigint(20)",
         "isNull": "1"
       },
       {
@@ -154,13 +172,13 @@
         "isNull": "1"
       },
       {
-        "name": "apply_id",
+        "name": "process_id",
         "comments": "主流程id",
         "jdbcType": "bigint(20)",
         "isNull": "1"
       },
       {
-        "name": "apply_type",
+        "name": "process_type",
         "comments": "主流程类型",
         "jdbcType": "varchar(300)",
         "isNull": "1"

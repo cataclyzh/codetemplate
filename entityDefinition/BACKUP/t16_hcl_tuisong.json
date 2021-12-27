@@ -1,0 +1,182 @@
+{
+  "projectName": "gongan_duty",
+  "moduleName": "duty",
+  "databaseName": "gongan_duty_zh1",
+  "functionName": "调度令核查令推送",
+  "functionNameSimple": "",
+  "functionAuthor": "zh",
+  "updateDB":true,
+  "table": {
+    "number": "",
+    "name": "hcl_tuisong",
+    "comments": "核查令,调度令推送",
+    "className": "HclTuiSong",
+    "parentTable": "",
+    "parentTableFk": "",
+    "isTree":false,
+    "columnList": [
+      {
+        "name": "tuisong_jieshou_org_id",
+        "comments": "被推送单位id",
+        "jdbcType": "bigint(20)",
+        "isNull": "0"
+      },
+      {
+        "name": "tuisong_user_id",
+        "comments": "推送人id",
+        "jdbcType": "bigint(20)",
+        "isNull": "0"
+      },
+      {
+        "name": "tuisong_time",
+        "comments": "推送时间",
+        "jdbcType": "char(19)",
+        "isNull": "0"
+      },
+      {
+        "name": "tuisong_message",
+        "comments": "推送意见",
+        "jdbcType": "varchar(500)",
+        "isNull": "0"
+      },
+      {
+        "name": "tuisong_sign_user_id",
+        "comments": "签收人id",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "tuisong_sign_time",
+        "comments": "签收时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "tuisong_sign_message",
+        "comments": "签收信息",
+        "jdbcType": "varchar(300)",
+        "isNull": "1"
+      },
+      {
+        "name": "process_status",
+        "comments": "流程状态",
+        "jdbcType": "varchar(100)",
+        "isNull": "1"
+      },
+      {
+        "name": "tuisong_tuihui_message",
+        "comments": "退回信息",
+        "jdbcType": "varchar(500)",
+        "isNull": "1"
+      },
+      {
+        "name": "tuisong_tuihui_time",
+        "comments": "退回时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "tuisong_tuihui_user_id",
+        "comments": "退回人",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_id",
+        "comments": "主流程id",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "fankui_user_id",
+        "comments": "反馈人id",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "fankui_time",
+        "comments": "反馈时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_no",
+        "comments": "服务单号",
+        "jdbcType": "varchar(100)",
+        "isNull": "1"
+      },
+      {
+        "name": "he_gao_ren",
+        "comments": "核稿人",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "qian_fa_ren",
+        "comments": "签发人",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "fankui_yijian",
+        "comments": "反馈意见",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "shuju_chuliliang",
+        "comments": "数据处理量",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "fankui_jieguoliang_tiao",
+        "comments": "反馈结果量(条)",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "fankui_jieguoliang_ren",
+        "comments": "反馈结果量(人)",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "feedback_type",
+        "comments": "反馈类型",
+        "jdbcType": "varchar(100)",
+        "isNull": "1"
+      },
+      {
+        "name": "dan_wei",
+        "comments": "单位",
+        "jdbcType": "varchar(200)",
+        "isNull": "1"
+      },
+      {
+        "name": "zu_zhi",
+        "comments": "组织",
+        "jdbcType": "varchar(200)",
+        "isNull": "1"
+      },
+      {
+        "name": "tuisong_attachement_ids",
+        "comments": "附件",
+        "jdbcType": "varchar(200)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_title",
+        "comments": "核查令主题",
+        "jdbcType": "varchar(500)",
+        "isNull": "1"
+      },
+      {
+        "name": "process_type",
+        "comments": "流程类型",
+        "jdbcType": "varchar(200)",
+        "isNull": "1"
+      }
+    ]
+  }
+}

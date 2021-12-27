@@ -1,0 +1,122 @@
+{
+  "projectName": "gongan_duty",
+  "moduleName": "duty",
+  "databaseName": "gongan_duty_zh1",
+  "functionName": "地市服务申请",
+  "functionNameSimple": "",
+  "functionAuthor": "zh",
+  "updateDB":true,
+  "table": {
+    "number": "",
+    "name": "hcl",
+    "comments": "核查令,调度令",
+    "className": "Hcl",
+    "parentTable": "",
+    "parentTableFk": "",
+    "isTree":false,
+    "columnList": [
+      {
+        "name": "apply_no",
+        "comments": "服务单号",
+        "jdbcType": "varchar(100)",
+        "isNull": "1"
+      },
+      {
+        "name": "jingji_chengdu",
+        "comments": "紧急程度",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_title",
+        "comments": "核查令主题",
+        "jdbcType": "varchar(300)",
+        "isNull": "1"
+      },
+      {
+        "name": "requirement_title",
+        "comments": "需求主题",
+        "jdbcType": "varchar(500)",
+        "isNull": "1"
+      },
+      {
+        "name": "lianxi_ren",
+        "comments": "联系人",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
+        "name": "lianxi_ren_dianhua",
+        "comments": "联系人电话",
+        "jdbcType": "varchar(200)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_content",
+        "comments": "核查令内容",
+        "jdbcType": "varchar(1000)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_zaixian_bianji",
+        "comments": "核查令在线文本",
+        "jdbcType": "varchar(500)",
+        "isNull": "1"
+      },
+      {
+        "name": "apply_attachment_ids",
+        "comments": "申请单附件上传",
+        "jdbcType": "varchar(200)",
+        "isNull": "1"
+      },
+      {
+        "name": "edit_user_id",
+        "comments": "编辑人id",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "edit_time",
+        "comments": "编辑时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "process_status",
+        "comments": "流程状态",
+        "jdbcType": "varchar(100)",
+        "isNull": "1"
+      },
+      {
+        "name": "process_type",
+        "comments": "流程类型",
+        "jdbcType": "varchar(200)",
+        "isNull": "1"
+      },
+      {
+        "name": "owner_user_id",
+        "comments": "表单所有者",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "tuisong_user_id",
+        "comments": "推送人id",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "tuisong_time",
+        "comments": "推送时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "tuisong_message",
+        "comments": "推送意见",
+        "jdbcType": "varchar(500)",
+        "isNull": "1"
+      }
+    ]
+  }
+}

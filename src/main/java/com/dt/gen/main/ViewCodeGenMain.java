@@ -11,7 +11,7 @@ public class ViewCodeGenMain {
     public static void main(String[] args) {
 
         PackageConfigBuilder builder = new DtdataPackageConfigBuilder();
-        String viewNames = "v_user,v_org";
+        String viewNames = "v_user";
 
         log.info("view names: {}", viewNames);
         new CodeGenService("/template_v/").execute(

@@ -14,7 +14,7 @@ public class DtdataPackageConfigBuilder implements PackageConfigBuilder {
 
     @Override
     public PackageConfig buildPackageConfig() {
-        return getPackageConfig("dtdata", "dt");
+        return getPackageConfig("duty", "dt");
     }
 
     @Override

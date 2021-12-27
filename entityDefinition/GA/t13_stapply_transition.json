@@ -46,6 +46,12 @@
         "isNull": "1"
       },
       {
+        "name": "transition_sign_message",
+        "comments": "转办签收消息",
+        "jdbcType": "varchar(300)",
+        "isNull": "1"
+      },
+      {
         "name": "transition_feedback_user_id",
         "comments": "转办反馈人员id",
         "jdbcType": "bigint(20)",
@@ -133,6 +139,12 @@
         "name": "transition_feedback_fankuibiao",
         "comments": "转办反馈表（在线编辑）",
         "jdbcType": "varchar(300)",
+        "isNull": "1"
+      },
+      {
+        "name": "feedback_type",
+        "comments": "反馈类型",
+        "jdbcType": "varchar(100)",
         "isNull": "1"
       },
       {

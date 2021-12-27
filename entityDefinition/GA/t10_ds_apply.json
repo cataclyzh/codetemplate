@@ -318,6 +318,12 @@
         "isNull": "1"
       },
       {
+        "name": "feedback_type",
+        "comments": "反馈类型",
+        "jdbcType": "varchar(100)",
+        "isNull": "1"
+      },
+      {
         "name": "report_valuation_user_id",
         "comments": "评价人员",
         "jdbcType": "bigint(20)",

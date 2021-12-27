@@ -162,6 +162,30 @@
         "isNull": "1"
       },
       {
+        "name": "st_indicate_user_id",
+        "comments": "省厅指示值班长id",
+        "jdbcType": "bigint(20)",
+        "isNull": "1"
+      },
+      {
+        "name": "st_indicate_time",
+        "comments": "省厅指示时间",
+        "jdbcType": "char(19)",
+        "isNull": "1"
+      },
+      {
+        "name": "st_indicate_message",
+        "comments": "省厅指示意见",
+        "jdbcType": "varchar(500)",
+        "isNull": "1"
+      },
+      {
+        "name": "st_indicate_method",
+        "comments": "指示处理方法",
+        "jdbcType": "varchar(50)",
+        "isNull": "1"
+      },
+      {
         "name": "st_feedback_user_id",
         "comments": "省厅反馈人员",
         "jdbcType": "bigint(20)",
@@ -294,6 +318,12 @@
         "isNull": "1"
       },
       {
+        "name": "feedback_type",
+        "comments": "反馈类型",
+        "jdbcType": "varchar(100)",
+        "isNull": "1"
+      },
+      {
         "name": "report_valuation_user_id",
         "comments": "评价人员",
         "jdbcType": "bigint(20)",
@@ -326,7 +356,7 @@
       {
         "name": "finish_operator_user_id",
         "comments": "完结操作人员",
-        "jdbcType": "varchar(50)",
+        "jdbcType": "bigint(20)",
         "isNull": "1"
       },
       {
@@ -367,10 +397,28 @@
         "isNull": "1"
       },
       {
+        "name": "process_owner_org_id",
+        "comments": "流程单所属单位",
+        "jdbcType": "bigint(20)",
+        "isNull": "0"
+      },
+      {
+        "name": "process_approve_org_id",
+        "comments": "流程审批单位",
+        "jdbcType": "bigint(20)",
+        "isNull": "0"
+      },
+      {
         "name": "check_return",
         "comments": "流程是否处于退回状态",
         "jdbcType": "varchar(20)",
         "isNull": "1"
+      },
+      {
+        "name": "process_type",
+        "comments": "流程类型",
+        "jdbcType": "varchar(200)",
+        "isNull": "0"
       }
     ]
   }
